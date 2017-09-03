@@ -6,13 +6,10 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -60,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.layout_information)
     void openInformationActivity() {
-        startActivity(new Intent(this, SubMenuInformationActivity.class));
+        startActivity(new Intent(this, InformationActivity.class));
     }
 
     @OnClick(R.id.layout_support)

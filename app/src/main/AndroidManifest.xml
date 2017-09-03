@@ -19,7 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SubMenuInformationActivity"/>
+        <activity android:name=".InformationActivity"/>
+        <activity android:name=".InformationDementiaActivity"/>
+        <activity android:name=".InformationCareActivity"/>
+        <activity android:name=".InformationEnvironmentActivity"/>
+        <activity android:name=".InformationMediaActivity"/>
+        <activity android:name=".PdfViewerActivity"/>
         <activity android:name=".SubMenuSupportActivity"/>
         <activity android:name=".SubMenuNotificationActivity"/>
         <activity android:name=".SubMenuPictureActivity"/>
