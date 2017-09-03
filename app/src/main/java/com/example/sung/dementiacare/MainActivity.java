@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.layout_support)
     void openSupportActivity() {
+
         startActivity(new Intent(this, SubMenuSupportActivity.class));
     }
 
