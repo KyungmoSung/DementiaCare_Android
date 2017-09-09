@@ -17,7 +17,8 @@ import butterknife.ButterKnife;
  */
 
 public class InformationMediaActivity extends AppCompatActivity {
-    final int arrayResourceId = R.array.list_info_media;
+    final int ARRAY_RESOURCE_ID = R.array.list_info_media;
+
     static String[] menuList;
 
     @BindView(R.id.list_info)
@@ -29,26 +30,18 @@ public class InformationMediaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_submenu_information);
         ButterKnife.bind(this);
 
-        Intent intent = getIntent();
-        int listId = intent.getIntExtra("listId", 0);
-        final int menuIndex = intent.getIntExtra("menuIndex", 0);
-
-        menuList = getResources().getStringArray(listId);
-
+        menuList = getResources().getStringArray(ARRAY_RESOURCE_ID);
 
         final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.listview_item_layout, menuList);
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), PdfViewerActivity.class);
-                intent.putExtra("main_index", menuIndex);
+                Intent intent = new Intent(getApplicationContext(), InformationMediaListActivity.class);
                 intent.putExtra("sub_index", position);
                 startActivity(intent);
             }
         });
 
     }
-
 }
