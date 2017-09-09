@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="list_info">
+    <string-array name="list_info_title">
         <item>치매 정보</item>
         <item>돌봄 정보</item>
         <item>환경</item>
         <item>동영상</item>
     </string-array>
 
-    <string-array name="list_info_dementia">
+    <string-array name="list_info_title_dementia">
         <item>치매 바로알기</item>
         <item>치매가 걱정되세요?</item>
         <item>치매로 진단 받으셨어요?</item>
         <item>알맞은 서비스를 찾아보세요!</item>
     </string-array>
 
-    <string-array name="sub_list_info_dementia_1">
+    <string-array name="sub_list_info_title_dementia_1">
         <item>가족들의 대화를 들어볼까요? \n각자의 속마음은 어떨까요?</item>
         <item>치매 알아보기</item>
         <item>치매 진단은 어떻게 하는 건가요?</item>
@@ -24,14 +24,14 @@
         <item>치매 조기발견과 지속치료의 중요성</item>
     </string-array>
 
-    <string-array name="sub_list_info_dementia_2">
+    <string-array name="sub_list_info_title_dementia_2">
         <item>치매예방수칙 3.3.3</item>
         <item>치매예방운동법</item>
         <item>치매예방 인지훈련 ‘두근두근 뇌운동’</item>
         <item>치매조기검진서비스</item>
     </string-array>
 
-    <string-array name="sub_list_info_dementia_3">
+    <string-array name="sub_list_info_title_dementia_3">
         <item>장기요양서비스</item>
         <item>치매치료관리비지원사업</item>
         <item>노인돌봄종합서비스</item>
@@ -40,20 +40,20 @@
         <item>성년후견제도</item>
     </string-array>
 
-    <string-array name="sub_list_info_dementia_4">
+    <string-array name="sub_list_info_title_dementia_4">
         <item>치매 진단 받기</item>
         <item>치매어르신을 위한 서비스 찾기</item>
     </string-array>
 
 
-    <string-array name="list_info_care">
+    <string-array name="list_info_title_care">
         <item>가족들의 대화를 들어볼까요?</item>
         <item>각자의 속마음은 어떨까요?</item>
         <item>치매어르신, 어떻게 대해야 할까요</item>
         <item>치매돌봄 10계명</item>
     </string-array>
 
-    <string-array name="sub_list_info_care_3">
+    <string-array name="sub_list_info_title_care_3">
         <item>치매어르신, 어떻게 대해야 할까요</item>
         <item>치매어르신의 심정은 어떨까요?</item>
         <item>가족들은 어떤 심정일까요?</item>
@@ -63,7 +63,7 @@
         <item>가족들도 병나겠어요. 이렇게 해쳐나가요</item>
     </string-array>
 
-    <string-array name="list_info_environ">
+    <string-array name="list_info_title_environment">
         <item>거실</item>
         <item>침실</item>
         <item>욕실 및 화장실</item>
@@ -71,7 +71,7 @@
         <item>정원</item>
     </string-array>
 
-    <string-array name="list_info_media">
+    <string-array name="list_info_title_media">
         <item>치매극복 인식개선 동영상</item>
         <item>치매예방체조</item>
         <item>안전</item>

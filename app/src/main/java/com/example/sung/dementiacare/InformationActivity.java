@@ -18,10 +18,10 @@ import butterknife.ButterKnife;
  */
 
 public class InformationActivity extends AppCompatActivity {
-    final int arrayResourceId = R.array.list_info;
+    final int arrayResourceId = R.array.list_info_title;
     String[] LIST_MENU;
 
-    @BindView(R.id.list_info)
+    @BindView(R.id.list_info_title)
     ListView listView;
 
     @Override
@@ -53,7 +53,7 @@ public class InformationActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 3:
-                        intent = new Intent(getApplicationContext(), InformationMediaActivity.class);
+                        intent = new Intent(getApplicationContext(), InformationVideoActivity.class);
                         startActivity(intent);
                         break;
                 }

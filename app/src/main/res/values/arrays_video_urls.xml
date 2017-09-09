@@ -1,167 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="sub_list_menu_media_url_1">
-        <item>@array/media_url_1_1</item>
+    <array name="arrays_video_1">
+        <item>@array/video_item_1_1</item>
     </array>
 
-    <array name="sub_list_menu_media_url_2">
-        <item>@array/media_url_2_1</item>
+    <array name="arrays_video_2">
+        <item>@array/video_item_2_1</item>
     </array>
 
-    <array name="sub_list_menu_media_url_3">
-        <item>@array/media_url_3_1</item>
-        <item>@array/media_url_3_2</item>
-        <item>@array/media_url_3_3</item>
+    <array name="arrays_video_3">
+        <item>@array/video_item_3_1</item>
+        <item>@array/video_item_3_2</item>
+        <item>@array/video_item_3_3</item>
     </array>
 
-    <array name="sub_list_menu_media_url_4">
-        <item>@array/media_url_4_1</item>
-        <item>@array/media_url_4_2</item>
-        <item>@array/media_url_4_3</item>
-        <item>@array/media_url_4_4</item>
-        <item>@array/media_url_4_5</item>
+    <array name="arrays_video_4">
+        <item>@array/video_item_4_1</item>
+        <item>@array/video_item_4_2</item>
+        <item>@array/video_item_4_3</item>
+        <item>@array/video_item_4_4</item>
+        <item>@array/video_item_4_5</item>
     </array>
 
-    <array name="sub_list_menu_media_url_5">
-        <item>@array/media_url_5_1</item>
-        <item>@array/media_url_5_2</item>
-        <item>@array/media_url_5_3</item>
-        <item>@array/media_url_5_4</item>
-        <item>@array/media_url_5_5</item>
+    <array name="arrays_video_5">
+        <item>@array/video_item_5_1</item>
+        <item>@array/video_item_5_2</item>
+        <item>@array/video_item_5_3</item>
+        <item>@array/video_item_5_4</item>
+        <item>@array/video_item_5_5</item>
     </array>
 
-    <array name="sub_list_menu_media_url_6">
-        <item>@array/media_url_6_1</item>
-        <item>@array/media_url_6_2</item>
-        <item>@array/media_url_6_3</item>
-        <item>@array/media_url_6_4</item>
-        <item>@array/media_url_6_5</item>
-        <item>@array/media_url_6_6</item>
-        <item>@array/media_url_6_7</item>
+    <array name="arrays_video_6">
+        <item>@array/video_item_6_1</item>
+        <item>@array/video_item_6_2</item>
+        <item>@array/video_item_6_3</item>
+        <item>@array/video_item_6_4</item>
+        <item>@array/video_item_6_5</item>
+        <item>@array/video_item_6_6</item>
+        <item>@array/video_item_6_7</item>
     </array>
 
-    <array name="sub_list_menu_media_url_7">
-        <item>@array/media_url_7_1</item>
+    <array name="arrays_video_7">
+        <item>@array/video_item_7_1</item>
     </array>
 
 
-    <string-array name="media_url_1_1">
+    <string-array name="video_item_1_1">
         <item>치매극복 인식개선 동영상</item>
         <item>EFsqAmMFOYs</item>
     </string-array>
 
 
-    <string-array name="media_url_2_1">
+    <string-array name="video_item_2_1">
         <item>치매예방체</item>
         <item>zirJ5gz56JY</item>
     </string-array>
 
 
-    <string-array name="media_url_3_1">
+    <string-array name="video_item_3_1">
         <item>치매환자가 위험한 물건에 접근할 때</item>
         <item>f5zPKOcd8sg</item>
     </string-array>
 
-    <string-array name="media_url_3_2">
+    <string-array name="video_item_3_2">
         <item>치매환자가 집을 나가거나 집 밖에서 배회하는 경우</item>
         <item>VMTnhdl5v1I</item>
     </string-array>
 
-    <string-array name="media_url_3_3">
+    <string-array name="video_item_3_3">
         <item>치매환자 혼자 두는 경우</item>
         <item>g_mSrCTCnoQ</item>
     </string-array>
 
 
-    <string-array name="media_url_4_1">
+    <string-array name="video_item_4_1">
         <item>치매환자 실금 문제와 화장실 이용하기</item>
         <item>QN4m6Fj2D_Q</item>
     </string-array>
 
-    <string-array name="media_url_4_2">
+    <string-array name="video_item_4_2">
         <item>치매환자 식사하기</item>
         <item>owhfZjFdMdA</item>
     </string-array>
 
-    <string-array name="media_url_4_3">
+    <string-array name="video_item_4_3">
         <item>치매환자 목욕하기</item>
         <item>1IDJhkpJMsw</item>
     </string-array>
 
-    <string-array name="media_url_4_4">
+    <string-array name="video_item_4_4">
         <item>치매환자 담당의사와 만나기</item>
         <item>ZFX7Dh5riI8</item>
     </string-array>
 
-    <string-array name="media_url_4_5">
+    <string-array name="video_item_4_5">
        <item>치매환자 의사소통</item>
         <item>Zn8s-9pLwbg</item>
     </string-array>
 
 
-    <string-array name="media_url_5_1">
+    <string-array name="video_item_5_1">
         <item>치매환자가 같은 질문을 반복하는 경우</item>
         <item>XpVMnhLt7MA</item>
     </string-array>
 
-    <string-array name="media_url_5_2">
+    <string-array name="video_item_5_2">
         <item>치매환자 최근 사건들을 기억하기</item>
         <item>z3toIJBDHUM</item>
     </string-array>
 
-    <string-array name="media_url_5_3">
+    <string-array name="video_item_5_3">
         <item>치매환자 과거의 중요한 일 기억하기</item>
         <item>NGyPVvB9j6w</item>
     </string-array>
 
-    <string-array name="media_url_5_4">
+    <string-array name="video_item_5_4">
         <item>물건을 잃어버리거나 어디에 두었는지 모르는 경우</item>
         <item>5DKfGrU2Xfw</item>
     </string-array>
 
-    <string-array name="media_url_5_5">
+    <string-array name="video_item_5_5">
         <item>치매환자가 요일과 날짜를 잊어버리는 경우</item>
         <item>Ct6HVLPHro4</item>
     </string-array>
 
 
-    <string-array name="media_url_6_1">
+    <string-array name="video_item_6_1">
         <item>치매단계별로 이해하고 대응하는 방법</item>
         <item>XRx5D4raMd4</item>
     </string-array>
 
-    <string-array name="media_url_6_2">
+    <string-array name="video_item_6_2">
         <item>치매환자가 밤에 가족을 깨우는 경우</item>
         <item>cC1kw3_Us1U</item>
     </string-array>
 
-    <string-array name="media_url_6_3">
+    <string-array name="video_item_6_3">
         <item>치매환자가 크고 빠르게 말하는 경우</item>
         <item>SRsP-EplEws</item>
     </string-array>
 
-    <string-array name="media_url_6_4">
+    <string-array name="video_item_6_4">
         <item>치매환자가 걱정이나 근심하는 경우</item>
         <item>fLEoJxIHUm0</item>
     </string-array>
 
-    <string-array name="media_url_6_5">
+    <string-array name="video_item_6_5">
         <item>치매환자가 슬픔이나 우울을 호소하는 경우</item>
         <item>3WgCqXNbvz4</item>
     </string-array>
 
-    <string-array name="media_url_6_6">
+    <string-array name="video_item_6_6">
         <item>치매환자가 다른 사람을 다치게 하려고 위협하는 경우</item>
         <item>Wq3eP0SrVgM</item>
     </string-array>
 
-    <string-array name="media_url_6_7">
+    <string-array name="video_item_6_7">
         <item>치매환자가 공격적인 언어를 사용하는 경우</item>
         <item>wWNBDnq0bBA</item>
     </string-array>
 
 
-    <string-array name="media_url_7_1">
+    <string-array name="video_item_7_1">
         <item>집안 일 도움 요청하기</item>
         <item>EilcsK3SoCQ</item>
     </string-array>

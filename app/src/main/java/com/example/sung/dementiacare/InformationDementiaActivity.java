@@ -18,12 +18,12 @@ import butterknife.ButterKnife;
 
 public class InformationDementiaActivity extends AppCompatActivity {
     final int MENU_INDEX = 0;
-    final int[] ARRAY_RESOURCE_ID = {R.array.list_info_dementia, R.array.sub_list_info_dementia_1, R.array.sub_list_info_dementia_2, R.array.sub_list_info_dementia_3, R.array.sub_list_info_dementia_4};
+    final int[] ARRAY_RESOURCE_ID = {R.array.list_info_title_dementia, R.array.sub_list_info_title_dementia_1, R.array.sub_list_info_title_dementia_2, R.array.sub_list_info_title_dementia_3, R.array.sub_list_info_title_dementia_4};
 
     int mainIndex;
     static String[] menuList;
 
-    @BindView(R.id.list_info)
+    @BindView(R.id.list_info_title)
     ListView listView;
 
     @Override

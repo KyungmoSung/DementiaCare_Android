@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY guide "guide.pdf"><!ENTITY learn "learn.pdf"><!ENTITY info "info.pdf"><!ENTITY wisdom "wisdom.pdf">]>
 <resources>
-    <array name="sub_list_menu_care_pages_1">
+    <array name="arrays_care_pdf_pages_1">
         <item>@array/care_pages_1_1</item>
     </array>
 
-    <array name="sub_list_menu_care_pages_2">
+    <array name="arrays_care_pdf_pages_2">
         <item>@array/care_pages_2_1</item>
     </array>
 
-    <array name="sub_list_menu_care_pages_3">
+    <array name="arrays_care_pdf_pages_3">
         <item>@array/care_pages_3_1</item>
         <item>@array/care_pages_3_2</item>
         <item>@array/care_pages_3_3</item>
@@ -18,7 +18,7 @@
         <item>@array/care_pages_3_7</item>
     </array>
 
-    <array name="sub_list_menu_care_pages_4">
+    <array name="arrays_care_pdf_pages_4">
         <item>@array/care_pages_4_1</item>
     </array>
 

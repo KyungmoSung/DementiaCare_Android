@@ -18,12 +18,12 @@ import butterknife.ButterKnife;
 
 public class InformationCareActivity extends AppCompatActivity {
     final int MENU_INDEX = 1;
-    final int[] ARRAY_RESOURCE_ID = {R.array.list_info_care, R.array.sub_list_info_care_3};
+    final int[] ARRAY_RESOURCE_ID = {R.array.list_info_title_care, R.array.sub_list_info_title_care_3};
 
     int mainIndex;
     static String[] menuList;
 
-    @BindView(R.id.list_info)
+    @BindView(R.id.list_info_title)
     ListView listView;
 
     @Override

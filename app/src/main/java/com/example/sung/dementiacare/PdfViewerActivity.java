@@ -19,8 +19,8 @@ import butterknife.ButterKnife;
 
 public class PdfViewerActivity extends AppCompatActivity {
 
-    final int INFORMATION_DEMENTIA_RESOURCE_ID[] = {R.array.sub_list_menu_dementia_pages_1, R.array.sub_list_menu_dementia_pages_2, R.array.sub_list_menu_dementia_pages_3, R.array.sub_list_menu_dementia_pages_4};
-    final int INFORMATION_CARE_RESOURCE_ID[] = {R.array.sub_list_menu_care_pages_1, R.array.sub_list_menu_care_pages_2, R.array.sub_list_menu_care_pages_3, R.array.sub_list_menu_care_pages_4};
+    final int INFORMATION_DEMENTIA_RESOURCE_ID[] = {R.array.arrays_dementia_pdf_pages_1, R.array.arrays_dementia_pdf_pages_2, R.array.arrays_dementia_pdf_pages_3, R.array.arrays_dementia_pdf_pages_4};
+    final int INFORMATION_CARE_RESOURCE_ID[] = {R.array.arrays_care_pdf_pages_1, R.array.arrays_care_pdf_pages_2, R.array.arrays_care_pdf_pages_3, R.array.arrays_care_pdf_pages_4};
     final int INFORMATION_RESOURCE_ID[][] = {INFORMATION_DEMENTIA_RESOURCE_ID, INFORMATION_CARE_RESOURCE_ID};
 
     @BindView(R.id.pdfView)

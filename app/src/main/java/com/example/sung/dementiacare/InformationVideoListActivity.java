@@ -45,9 +45,9 @@ import java.util.List;
 import java.util.Map;
 
 @TargetApi(13)
-public final class InformationMediaListActivity extends AppCompatActivity implements OnFullscreenListener {
+public final class InformationVideoListActivity extends AppCompatActivity implements OnFullscreenListener {
     
-    final int INFORMATION_MEDIA_RESOURCE_ID[] = {R.array.sub_list_menu_media_url_1, R.array.sub_list_menu_media_url_2, R.array.sub_list_menu_media_url_3, R.array.sub_list_menu_media_url_4, R.array.sub_list_menu_media_url_5, R.array.sub_list_menu_media_url_6, R.array.sub_list_menu_media_url_7};
+    final int INFORMATION_MEDIA_RESOURCE_ID[] = {R.array.arrays_video_1, R.array.arrays_video_2, R.array.arrays_video_3, R.array.arrays_video_4, R.array.arrays_video_5, R.array.arrays_video_6, R.array.arrays_video_7};
     
     public static final String DEVELOPER_KEY = "AIzaSyAymR-Xk1F43CA91qlGqefu94mgMriqXDI";
     private static final int ANIMATION_DURATION_MILLIS = 300;
@@ -429,7 +429,7 @@ public final class InformationMediaListActivity extends AppCompatActivity implem
         public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean restored) {
             this.player = player;
             player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
-            player.setOnFullscreenListener((InformationMediaListActivity) getActivity());
+            player.setOnFullscreenListener((InformationVideoListActivity) getActivity());
             if (!restored && videoId != null) {
                 player.cueVideo(videoId);
             }

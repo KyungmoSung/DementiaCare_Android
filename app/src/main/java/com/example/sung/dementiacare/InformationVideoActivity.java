@@ -16,12 +16,12 @@ import butterknife.ButterKnife;
  * Created by Sung on 2017. 9. 3..
  */
 
-public class InformationMediaActivity extends AppCompatActivity {
-    final int ARRAY_RESOURCE_ID = R.array.list_info_media;
+public class InformationVideoActivity extends AppCompatActivity {
+    final int ARRAY_RESOURCE_ID = R.array.list_info_title_media;
 
     static String[] menuList;
 
-    @BindView(R.id.list_info)
+    @BindView(R.id.list_info_title)
     ListView listView;
 
     @Override
@@ -37,7 +37,7 @@ public class InformationMediaActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), InformationMediaListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), InformationVideoListActivity.class);
                 intent.putExtra("sub_index", position);
                 startActivity(intent);
             }

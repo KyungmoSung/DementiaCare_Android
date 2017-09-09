@@ -26,10 +26,10 @@
         <activity android:name=".InformationDementiaActivity"/>
         <activity android:name=".InformationCareActivity"/>
         <activity android:name=".InformationEnvironmentActivity"/>
-        <activity android:name=".InformationMediaActivity"/>
+        <activity android:name=".InformationVideoActivity"/>
         <activity
             android:label="@string/media_list_title"
-            android:name=".InformationMediaListActivity"
+            android:name=".InformationVideoListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <meta-data android:name="minVersion" android:value="13"/>
             <meta-data android:name="isLaunchableActivity" android:value="true"/>
@@ -38,6 +38,7 @@
         <activity android:name=".SubMenuSupportActivity"/>
         <activity android:name=".SubMenuNotificationActivity"/>
         <activity android:name=".SubMenuPictureActivity"/>
+        <activity android:name=".InformationEnvironmentWebViewActivity"/>
     </application>
 
 </manifest>

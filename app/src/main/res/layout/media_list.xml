@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
   <fragment
-      class="com.example.sung.dementiacare.InformationMediaListActivity$VideoListFragment"
+      class="com.example.sung.dementiacare.InformationVideoListActivity$VideoListFragment"
       android:id="@+id/list_fragment"
       android:layout_width="match_parent"
       android:layout_height="match_parent"/>
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/video_fragment_container"
-        class="com.example.sung.dementiacare.InformationMediaListActivity$VideoFragment"
+        class="com.example.sung.dementiacare.InformationVideoListActivity$VideoFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
