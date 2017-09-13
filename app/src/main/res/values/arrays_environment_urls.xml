@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="arrays_environment">
+        <item>@array/env_livingroom</item>
+        <item>@array/env_bedroom</item>
+        <item>@array/env_bathroom</item>
+        <item>@array/env_kitchen</item>
+        <item>@array/env_garden</item>
+    </array>
+
+
+    <string-array name="env_livingroom">
+        <item>거실</item>
+        <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_livingroom</item>
+    </string-array>
+
+    <string-array name="env_bedroom">
+        <item>침실</item>
+        <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_bedroom1</item>
+    </string-array>
+
+    <string-array name="env_bathroom">
+        <item>욕실 및 화장실</item>
+        <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_bathroom</item>
+    </string-array>
+
+    <string-array name="env_kitchen">
+        <item>주방</item>
+        <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_kitchen</item>
+    </string-array>
+
+    <string-array name="env_garden">
+        <item>정원</item>
+        <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_garden</item>
+    </string-array>
+</resources>
