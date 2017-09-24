@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?><!DOCTYPE resources [<!ENTITY guide "guide.pdf"><!ENTITY learn "learn.pdf"><!ENTITY info "info.pdf"><!ENTITY wisdom "wisdom.pdf">]>
+<resources>
+    <array name="arrays_care_pdf_pages_1">
+        <item>@array/care_pages_1_1</item>
+    </array>
+
+    <array name="arrays_care_pdf_pages_2">
+        <item>@array/care_pages_2_1</item>
+    </array>
+
+    <array name="arrays_care_pdf_pages_3">
+        <item>@array/care_pages_3_1</item>
+        <item>@array/care_pages_3_2</item>
+        <item>@array/care_pages_3_3</item>
+        <item>@array/care_pages_3_4</item>
+        <item>@array/care_pages_3_5</item>
+        <item>@array/care_pages_3_6</item>
+        <item>@array/care_pages_3_7</item>
+    </array>
+
+    <array name="arrays_care_pdf_pages_4">
+        <item>@array/care_pages_4_1</item>
+    </array>
+
+    <string-array name="care_pages_1_1">
+        <item>&wisdom;</item>
+        <item>4~7</item>
+    </string-array>
+
+    <string-array name="care_pages_2_1">
+        <item>&wisdom;</item>
+        <item>8~8</item>
+    </string-array>
+
+    <string-array name="care_pages_3_1">
+        <item>&wisdom;</item>
+        <item>9~9</item>
+    </string-array>
+
+    <string-array name="care_pages_3_2">
+        <item>&wisdom;</item>
+        <item>10~13</item>
+    </string-array>
+
+    <string-array name="care_pages_3_3">
+        <item>&wisdom;</item>
+        <item>14~15</item>
+    </string-array>
+
+    <string-array name="care_pages_3_4">
+        <item>&wisdom;</item>
+        <item>16~21</item>
+    </string-array>
+
+
+    <string-array name="care_pages_3_5">
+        <item>&wisdom;</item>
+        <item>22~24</item>
+    </string-array>
+
+    <string-array name="care_pages_3_6">
+        <item>&wisdom;</item>
+        <item>25~35</item>
+    </string-array>
+
+    <string-array name="care_pages_3_7">
+        <item>&wisdom;</item>
+        <item>36~39</item>
+    </string-array>
+
+    <string-array name="care_pages_4_1">
+        <item>&info;</item>
+        <item>78~81</item>
+    </string-array>
+
+</resources>

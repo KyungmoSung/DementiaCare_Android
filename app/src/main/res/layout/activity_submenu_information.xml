@@ -3,11 +3,9 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView8"
+
+    <ListView
+        android:id="@+id/list_info_title"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Information"
-        android:textSize="18sp" />
+        android:layout_height="match_parent" />
 </LinearLayout>
