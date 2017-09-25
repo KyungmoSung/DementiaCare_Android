@@ -38,6 +38,8 @@
         <activity android:name=".SubMenuSupportActivity"/>
         <activity android:name=".SubMenuNotificationActivity"/>
         <activity android:name=".SubMenuPictureActivity"/>
+        <activity android:name=".notification.NotificationMedicineActivity"/>
+        <activity android:name=".notification.NotificationMedicineItemActivity"/>
         <activity android:name=".InformationEnvironmentWebViewActivity"/>
     </application>
 
