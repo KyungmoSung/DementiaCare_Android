@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.sung.dementiacare.information.InformationActivity;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
