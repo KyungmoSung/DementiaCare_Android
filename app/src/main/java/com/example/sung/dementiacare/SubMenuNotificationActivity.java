@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.example.sung.dementiacare.notification.CalendarActivity;
 import com.example.sung.dementiacare.notification.NotificationMedicineActivity;
+import com.example.sung.dementiacare.notification.NotificationTodayInformationActivity;
+import com.example.sung.dementiacare.notification.NotificationTodayMessageActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -52,17 +55,24 @@ public class SubMenuNotificationActivity extends AppCompatActivity {
     @OnClick(R.id.textView3)
     void onClickLayer2(){
 
+        intent = new Intent(getApplicationContext(), CalendarActivity.class);
+        startActivity(intent);
 
     }
 
     @OnClick(R.id.textView4)
     void onClickLayer3(){
 
+        intent = new Intent(getApplicationContext(), NotificationTodayInformationActivity.class);
+        startActivity(intent);
+
     }
 
     @OnClick(R.id.textView5)
     void onClickLayer4(){
 
+        intent = new Intent(getApplicationContext(), NotificationTodayMessageActivity.class);
+        startActivity(intent);
 
     }
 

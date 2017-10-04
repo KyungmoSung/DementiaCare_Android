@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,25 +23,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".InformationActivity"/>
-        <activity android:name=".InformationDementiaActivity"/>
-        <activity android:name=".InformationCareActivity"/>
-        <activity android:name=".InformationEnvironmentActivity"/>
-        <activity android:name=".InformationVideoActivity"/>
+        <activity android:name=".InformationActivity" />
+        <activity android:name=".InformationDementiaActivity" />
+        <activity android:name=".InformationCareActivity" />
+        <activity android:name=".InformationEnvironmentActivity" />
+        <activity android:name=".InformationVideoActivity" />
         <activity
-            android:label="@string/media_list_title"
             android:name=".InformationVideoListActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
-            <meta-data android:name="minVersion" android:value="13"/>
-            <meta-data android:name="isLaunchableActivity" android:value="true"/>
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/media_list_title">
+            <meta-data
+                android:name="minVersion"
+                android:value="13" />
+            <meta-data
+                android:name="isLaunchableActivity"
+                android:value="true" />
         </activity>
-        <activity android:name=".PdfViewerActivity"/>
-        <activity android:name=".SubMenuSupportActivity"/>
-        <activity android:name=".SubMenuNotificationActivity"/>
-        <activity android:name=".SubMenuPictureActivity"/>
-        <activity android:name=".notification.NotificationMedicineActivity"/>
-        <activity android:name=".notification.NotificationMedicineItemActivity"/>
-        <activity android:name=".InformationEnvironmentWebViewActivity"/>
+        <activity android:name=".PdfViewerActivity" />
+        <activity android:name=".SubMenuSupportActivity" />
+        <activity android:name=".SubMenuNotificationActivity" />
+        <activity android:name=".SubMenuPictureActivity" />
+        <activity android:name=".notification.NotificationMedicineActivity" />
+        <activity android:name=".notification.NotificationMedicineItemActivity" />
+        <activity android:name=".InformationEnvironmentWebViewActivity" />
+        <activity android:name=".notification.NotificationTodayInformationActivity" />
+        <activity android:name=".notification.NotificationTodayMessageActivity" />
+        <activity android:name=".notification.CalendarActivity"></activity>
     </application>
 
 </manifest>
