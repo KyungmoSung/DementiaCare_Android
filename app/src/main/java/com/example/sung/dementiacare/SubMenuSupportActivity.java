@@ -32,10 +32,10 @@ public class SubMenuSupportActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         i = new Intent(Intent.ACTION_VIEW);
-        TextView tv1 = (TextView)findViewById(R.id.textView2);
-        TextView tv2 = (TextView)findViewById(R.id.textView3);
-        TextView tv3 = (TextView)findViewById(R.id.textView4);
-        TextView tv4 = (TextView)findViewById(R.id.textView5);
+        TextView tv1 = (TextView)findViewById(R.id.textView1);
+        TextView tv2 = (TextView)findViewById(R.id.textView2);
+        TextView tv3 = (TextView)findViewById(R.id.textView3);
+        TextView tv4 = (TextView)findViewById(R.id.textView4);
 
         Log.e("park", "onCreate: ");
 
@@ -48,14 +48,14 @@ public class SubMenuSupportActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.textView2)
+    @OnClick(R.id.textView1)
     void onClickLayer1(){
 
         u = Uri.parse("https://www.nid.or.kr");
         i.setData(u);
         startActivity(i);
     }
-    @OnClick(R.id.textView3)
+    @OnClick(R.id.textView2)
     void onClickLayer2(){
         u = Uri.parse("https://www.nid.or.kr/support/callcenter.aspx");
         i.setData(u);
@@ -63,14 +63,14 @@ public class SubMenuSupportActivity extends AppCompatActivity {
 
 
     }
-    @OnClick(R.id.layout_notification)
+    @OnClick(R.id.textView3)
     void onClickLayer3(){
         u = Uri.parse("https://partner.nid.or.kr/main/main.aspx");
         i.setData(u);
         startActivity(i);
 
     }
-    @OnClick(R.id.textView5)
+    @OnClick(R.id.textView4)
     void onClickLayer4(){
         u = Uri.parse("https://www.nid.or.kr/support/jajo_group.aspx");
         i.setData(u);
