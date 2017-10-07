@@ -34,6 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO INFORMATION VALUES(null, '치매어르신의 신체적 건강에 대한 세심한 관심으로 적절한 건강관리를 받도록 합니다', '치매어르신은 자신의 신체 증상을 느끼고 표현하는 능력이 많이 부족합니다 그러다 보면 진단이나 치료의 적기를 놓쳐 작은 병을 크게 키우기도 하고 약화된 신체 질환 때문에 치매가 악화되기도 합니다. 가족들은 치매어르신이 제대로 표현하지 못하는 불편감이 없는지를 파악해야 합니다');");
         db.execSQL("INSERT INTO INFORMATION VALUES(null, '', '');");
 
+        db.execSQL("CREATE TABLE MESSAGE (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, text TEXT);");
+
 
     }
 
