@@ -1,4 +1,4 @@
-package com.example.sung.dementiacare.notification;
+package com.example.sung.dementiacare.notification.hopemessage;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

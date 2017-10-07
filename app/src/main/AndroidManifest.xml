@@ -46,8 +46,8 @@
         <activity android:name=".notification.medicine.NotificationMedicineActivity" />
         <activity android:name=".notification.medicine.NotificationMedicineItemActivity" />
         <activity android:name=".InformationEnvironmentWebViewActivity" />
-        <activity android:name=".notification.NotificationTodayInformationActivity" />
-        <activity android:name=".notification.NotificationTodayMessageActivity" />
+        <activity android:name=".notification.information.NotificationTodayInformationActivity" />
+        <activity android:name=".notification.hopemessage.NotificationTodayMessageActivity" />
         <activity android:name=".notification.CalendarActivity"></activity>
     </application>
 

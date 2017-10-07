@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.example.sung.dementiacare.notification.CalendarActivity;
 import com.example.sung.dementiacare.notification.medicine.NotificationMedicineActivity;
-import com.example.sung.dementiacare.notification.NotificationTodayInformationActivity;
-import com.example.sung.dementiacare.notification.NotificationTodayMessageActivity;
+import com.example.sung.dementiacare.notification.information.NotificationTodayInformationActivity;
+import com.example.sung.dementiacare.notification.hopemessage.NotificationTodayMessageActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
