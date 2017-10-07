@@ -1,15 +1,13 @@
 package com.example.sung.dementiacare;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.example.sung.dementiacare.notification.CalendarActivity;
-import com.example.sung.dementiacare.notification.NotificationMedicineActivity;
+import com.example.sung.dementiacare.notification.medicine.NotificationMedicineActivity;
 import com.example.sung.dementiacare.notification.NotificationTodayInformationActivity;
 import com.example.sung.dementiacare.notification.NotificationTodayMessageActivity;
 

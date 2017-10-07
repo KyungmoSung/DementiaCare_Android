@@ -43,8 +43,8 @@
         <activity android:name=".SubMenuSupportActivity" />
         <activity android:name=".SubMenuNotificationActivity" />
         <activity android:name=".SubMenuPictureActivity" />
-        <activity android:name=".notification.NotificationMedicineActivity" />
-        <activity android:name=".notification.NotificationMedicineItemActivity" />
+        <activity android:name=".notification.medicine.NotificationMedicineActivity" />
+        <activity android:name=".notification.medicine.NotificationMedicineItemActivity" />
         <activity android:name=".InformationEnvironmentWebViewActivity" />
         <activity android:name=".notification.NotificationTodayInformationActivity" />
         <activity android:name=".notification.NotificationTodayMessageActivity" />

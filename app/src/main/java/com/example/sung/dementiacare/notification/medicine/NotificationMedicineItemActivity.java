@@ -1,23 +1,19 @@
-package com.example.sung.dementiacare.notification;
+package com.example.sung.dementiacare.notification.medicine;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.ViewManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.sung.dementiacare.R;
-import com.example.sung.dementiacare.notification.medicine.MedicineDao;
-import com.example.sung.dementiacare.notification.medicine.MedicineDo;
+import com.example.sung.dementiacare.notification.NotificationChoiceListViewAdapter;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -44,7 +40,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     NotificationChoiceListViewAdapter adapter2;
 
     private int mode;
-
+    private int index;
     public static final int MODE_CREATE = 0x00000004;
     public static final int MODE_MODIFY = 0x00000005;
     public static final int MODE_VIEW = 0x00000006;
@@ -52,6 +48,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     Intent intent;
 
     MedicineDao medicineDao;
+    MedicineDo medicineDo;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,12 +56,16 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
         medicineDao = new MedicineDao(getApplicationContext(), null);
 
+
         intent = getIntent();
+
+        index = intent.getExtras().getInt("index");
         mode = intent.getExtras().getInt("mode");
 
         setContentViewMode(mode);
 
     }
+
     @OnClick(R.id.button0)
     void onClickButton0() {
 
@@ -97,6 +98,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 finish();
                 break;
             case MODE_MODIFY:
+                // 수정
 
                 mode = MODE_VIEW;
                 setContentViewMode(mode);
@@ -134,8 +136,11 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 ButterKnife.bind(this);
 
                 tv1 = (TextView)findViewById(R.id.textView0_0);
-                tv2 = (TextView)findViewById(R.id.textView0_1);
+//                tv2 = (TextView)findViewById(R.id.textView0_1);
                 tv3 = (TextView)findViewById(R.id.textView1_1);
+
+                et0 = (EditText)findViewById(R.id.editText0_0);
+
                 bt0 = (Button)findViewById(R.id.button0);
                 bt1 = (Button)findViewById(R.id.button1);
                 listView1 = (ListView)findViewById(R.id.list_view1);
@@ -148,6 +153,10 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 adapter2.addItem("아침") ;
                 adapter2.addItem("점심") ;
                 adapter2.addItem("저녁") ;
+
+                medicineDo = medicineDao.getResultByIno(index);
+
+                et0.setText(medicineDo.getName());
 
                 bt0.setText("완료");
                 bt1.setText("취소");
@@ -183,9 +192,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 ButterKnife.bind(this);
 
-                int index = intent.getExtras().getInt("index");
+                medicineDo = medicineDao.getResultByIno(index);
 
-                tv2.setText("으악");
+                tv2.setText(medicineDo.getName());
 
                 bt0.setText("확인");
                 bt1.setText("수정");

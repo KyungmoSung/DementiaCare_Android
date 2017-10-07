@@ -70,6 +70,24 @@ public class MedicineDao extends SQLiteOpenHelper {
         return arrayList;
     }
 
+    public MedicineDo getResultByIno(int ino) {
+
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM MEDICINE WHERE _id = "+Integer.toString(ino), null);
+
+        cursor.moveToFirst();
+
+        String name = cursor.getString(1);
+        String image_path_name = cursor.getString(2);
+        int alarm = cursor.getInt(3);
+
+        MedicineDo medicineDo = new MedicineDo(ino, name, image_path_name, alarm);
+
+
+        return medicineDo;
+    }
+
+
     public ArrayList<String> getNames() {
         SQLiteDatabase db = getReadableDatabase();
         ArrayList<String> names = new ArrayList<>();

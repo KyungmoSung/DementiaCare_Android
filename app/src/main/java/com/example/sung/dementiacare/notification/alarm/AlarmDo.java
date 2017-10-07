@@ -1,4 +1,4 @@
-package com.example.sung.dementiacare.notification;
+package com.example.sung.dementiacare.notification.alarm;
 
 import java.text.SimpleDateFormat;
 
