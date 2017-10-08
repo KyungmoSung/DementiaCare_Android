@@ -48,7 +48,14 @@
         <activity android:name=".InformationEnvironmentWebViewActivity" />
         <activity android:name=".notification.information.NotificationTodayInformationActivity" />
         <activity android:name=".notification.hopemessage.NotificationTodayMessageActivity" />
-        <activity android:name=".notification.CalendarActivity"></activity>
+        <activity android:name=".notification.CalendarActivity" />
+        <activity android:name=".notification.alarm.AlarmActivity"></activity>
+        <receiver android:name=".notification.alarm.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.example.sung.dementiacare.ALARM"></action>
+            </intent-filter>
+        </receiver>
+        
     </application>
 
 </manifest>

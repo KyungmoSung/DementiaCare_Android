@@ -64,6 +64,18 @@ public class NotificationMedicineActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        results.clear();
+        results.addAll(medicineDao.getResults());
+        adapter.notifyDataSetChanged();
+        listView.invalidate();
+
+    }
+
+
     @OnClick(R.id.fab1)
     void onClickFab() {
 

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.example.sung.dementiacare.R;
 import com.example.sung.dementiacare.notification.NotificationChoiceListViewAdapter;
+import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,6 +33,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
     Button bt0;
     Button bt1;
+    Button bt2;
+
+
     ListView listView0;
     ListView listView1;
 
@@ -76,6 +80,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 MedicineDo medicineDo = new MedicineDo(name, "hello",0);
                 medicineDao.insert(medicineDo);
 
+                finish();
                 break;
             case MODE_MODIFY:
 
@@ -111,6 +116,14 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
         }
     }
+    void onClickButton0_1() {
+
+        intent = new Intent(getApplicationContext(), AlarmActivity.class);
+        intent.putExtra("mode", NotificationMedicineItemActivity.MODE_CREATE);
+        startActivity(intent);
+
+
+    }
 
 
     void setContentViewMode(int mode) {
@@ -125,7 +138,15 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 tv3 = (TextView)findViewById(R.id.textView1_1);
                 bt0 = (Button)findViewById(R.id.button0);
                 bt1 = (Button)findViewById(R.id.button1);
+                bt2 = (Button)findViewById(R.id.Button0_1);
                 et0 = (EditText)findViewById(R.id.editText0_0);
+
+                bt2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onClickButton0_1();
+                    }
+                });
 
                 bt0.setText("완료");
                 bt1.setText("취소");
