@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <WebView
-        android:id="@+id/webView"
+    <include
+        android:id="@+id/tool_bar_with_plus"
+        layout="@layout/tool_bar_with_plus"/>
+
+    <GridView
+        android:id="@+id/photo_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="10dp" />
+        android:numColumns="3" />
 
 </LinearLayout>

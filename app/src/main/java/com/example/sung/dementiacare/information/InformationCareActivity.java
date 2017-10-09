@@ -1,13 +1,17 @@
 package com.example.sung.dementiacare.information;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
 
@@ -24,9 +28,16 @@ public class InformationCareActivity extends AppCompatActivity {
 
     int mainIndex;
     static String[] menuList;
+    String title;
 
     @BindView(R.id.list_info_title)
     ListView listView;
+
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
+
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,11 +47,18 @@ public class InformationCareActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        if (intent.hasExtra("title")) {
+            title = intent.getStringExtra("title");
+            toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            toolbar_title.setTextColor(Color.WHITE);
+            toolbar_title.setText(title);
+        }
+
         if (intent.hasExtra("main_index")) {
             mainIndex = intent.getIntExtra("main_index", 0);
             menuList = getResources().getStringArray(ARRAY_RESOURCE_ID[1]);
 
-            final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.listview_item_layout, menuList);
+            final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item_info, menuList);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -55,7 +73,7 @@ public class InformationCareActivity extends AppCompatActivity {
         } else {
             menuList = getResources().getStringArray(ARRAY_RESOURCE_ID[0]);
 
-            final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.listview_item_layout, menuList);
+            final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item_info, menuList);
             listView.setAdapter(adapter);
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -65,12 +83,14 @@ public class InformationCareActivity extends AppCompatActivity {
                     if (position == 2 && !intent.hasExtra("main_index")) {
                         intent = new Intent(getApplicationContext(), InformationCareActivity.class);
                         intent.putExtra("main_index", position);
+                        intent.putExtra("title", menuList[position]);
                         startActivity(intent);
                     } else {
                         intent = new Intent(getApplicationContext(), PdfViewerActivity.class);
                         intent.putExtra("menu_index", MENU_INDEX);
                         intent.putExtra("main_index", position);
                         intent.putExtra("sub_index", 0);
+                        intent.putExtra("title", menuList[position]);
                         startActivity(intent);
                     }
                 }

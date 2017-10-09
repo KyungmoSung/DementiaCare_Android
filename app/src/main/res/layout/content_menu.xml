@@ -9,6 +9,10 @@
     tools:context="com.example.sung.dementiacare.MainActivity"
     tools:showIn="@layout/activity_main">
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"/>
+
     <LinearLayout
         android:id="@+id/layout_information"
         android:layout_width="match_parent"
@@ -158,7 +162,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Schedule &amp; reminder"
+                android:text="Schedule &amp; Reminder"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
@@ -213,7 +217,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Diary &amp; photos"
+                android:text="Diary &amp; Photos"
                 android:textColor="@android:color/white" />
         </LinearLayout>
 

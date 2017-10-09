@@ -24,9 +24,12 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -44,6 +47,9 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 @TargetApi(13)
 public final class InformationVideoListActivity extends AppCompatActivity implements OnFullscreenListener {
@@ -64,6 +70,13 @@ public final class InformationVideoListActivity extends AppCompatActivity implem
     private boolean isFullscreen;
     
     public static String[][] mediaArray;
+    String title;
+
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
+
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +86,15 @@ public final class InformationVideoListActivity extends AppCompatActivity implem
         int subIndex = intent.getIntExtra("sub_index", 0);
         mediaArray = getArrayFromResource(INFORMATION_MEDIA_RESOURCE_ID[subIndex]);
 
-        setContentView(R.layout.media_list);
+        setContentView(R.layout.activity_video_list);
+        ButterKnife.bind(this);
+
+        if (intent.hasExtra("title")) {
+            title = intent.getStringExtra("title");
+            toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            toolbar_title.setTextColor(Color.WHITE);
+            toolbar_title.setText(title);
+        }
 
         listFragment = (VideoListFragment) getFragmentManager().findFragmentById(R.id.list_fragment);
         videoFragment =
@@ -334,7 +355,7 @@ public final class InformationVideoListActivity extends AppCompatActivity implem
             VideoEntry entry = entries.get(position);
 
             if (view == null) {
-                view = inflater.inflate(R.layout.media_list_item, parent, false);
+                view = inflater.inflate(R.layout.list_item_video, parent, false);
                 YouTubeThumbnailView thumbnail = (YouTubeThumbnailView) view.findViewById(R.id.thumbnail);
                 thumbnail.setTag(entry.videoId);
                 thumbnail.initialize(DEVELOPER_KEY, thumbnailListener);

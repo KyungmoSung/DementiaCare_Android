@@ -3,10 +3,14 @@ package com.example.sung.dementiacare.information;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
 import com.github.barteksc.pdfviewer.PDFView;
@@ -23,9 +27,16 @@ public class PdfViewerActivity extends AppCompatActivity {
     final int INFORMATION_DEMENTIA_RESOURCE_ID[] = {R.array.arrays_dementia_pdf_pages_1, R.array.arrays_dementia_pdf_pages_2, R.array.arrays_dementia_pdf_pages_3, R.array.arrays_dementia_pdf_pages_4};
     final int INFORMATION_CARE_RESOURCE_ID[] = {R.array.arrays_care_pdf_pages_1, R.array.arrays_care_pdf_pages_2, R.array.arrays_care_pdf_pages_3, R.array.arrays_care_pdf_pages_4};
     final int INFORMATION_RESOURCE_ID[][] = {INFORMATION_DEMENTIA_RESOURCE_ID, INFORMATION_CARE_RESOURCE_ID};
+    String title;
 
     @BindView(R.id.pdfView)
     PDFView pdfView;
+
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
+
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,6 +48,13 @@ public class PdfViewerActivity extends AppCompatActivity {
         int menuIndex = intent.getIntExtra("menu_index", 0);
         int mainIndex = intent.getIntExtra("main_index", 0);
         int subIndex = intent.getIntExtra("sub_index", 0);
+
+        if (intent.hasExtra("title")) {
+            title = intent.getStringExtra("title");
+            toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            toolbar_title.setTextColor(Color.WHITE);
+            toolbar_title.setText(title);
+        }
 
         String[][] pdfArray = getArrayFromResource(INFORMATION_RESOURCE_ID[menuIndex][mainIndex]);
         String pages = pdfArray[subIndex][1];
