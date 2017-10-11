@@ -65,6 +65,5 @@ public class InformationVideoActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

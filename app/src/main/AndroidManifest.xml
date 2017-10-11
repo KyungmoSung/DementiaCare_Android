@@ -22,13 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".information.InformationActivity"/>
-        <activity android:name=".information.InformationDementiaActivity"/>
-        <activity android:name=".information.InformationCareActivity"/>
-        <activity android:name=".information.InformationEnvironmentActivity"/>
-        <activity android:name=".information.InformationVideoActivity"/>
-        <activity android:name=".information.PdfViewerActivity"/>
-        <activity android:name=".information.InformationEnvironmentWebViewActivity"/>
+        <activity android:name=".information.InformationActivity" />
+        <activity android:name=".information.InformationDementiaActivity" />
+        <activity android:name=".information.InformationCareActivity" />
+        <activity android:name=".information.InformationEnvironmentActivity" />
+        <activity android:name=".information.InformationVideoActivity" />
+        <activity android:name=".information.PdfViewerActivity" />
+        <activity android:name=".information.InformationEnvironmentWebViewActivity" />
         <activity
             android:name="information.InformationVideoListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -40,22 +40,34 @@
                 android:name="isLaunchableActivity"
                 android:value="true" />
         </activity>
-        <activity android:name=".support.SupportActivity"/>
-        <activity android:name=".SubMenuNotificationActivity"/>
-        <activity android:name=".photo.PhotoMenuActivity"/>
-        <activity android:name=".photo.PhotoDiaryActivity"/>
-        <activity android:name=".photo.TextDiaryActivity"/>
-        <activity android:name=".photo.PhotoDiaryDetailActivity"/>
+        <activity android:name=".support.SupportActivity" />
+        <activity android:name=".SubMenuNotificationActivity" />
+        <activity android:name=".photo.PhotoMenuActivity" />
+        <activity android:name=".photo.PhotoDiaryActivity" />
+        <activity android:name=".photo.TextDiaryActivity" />
+        <activity android:name=".photo.PhotoDiaryDetailActivity" />
         <activity android:name=".notification.medicine.NotificationMedicineActivity" />
         <activity android:name=".notification.medicine.NotificationMedicineItemActivity" />
         <activity android:name=".notification.information.NotificationTodayInformationActivity" />
         <activity android:name=".notification.hopemessage.NotificationTodayMessageActivity" />
         <activity android:name=".notification.CalendarActivity" />
+        <activity
+            android:name=".information.InformationVideoListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/media_list_title">
+            <meta-data
+                android:name="minVersion"
+                android:value="13" />
+            <meta-data
+                android:name="isLaunchableActivity"
+                android:value="true" />
+        </activity>
+
         <!--<activity android:name=".notification.alarm.AlarmActivity"></activity>-->
         <!--<receiver android:name=".notification.alarm.AlarmReceiver">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="com.example.sung.dementiacare.ALARM"></action>-->
-            <!--</intent-filter>-->
+        <!--<intent-filter>-->
+        <!--<action android:name="com.example.sung.dementiacare.ALARM"></action>-->
+        <!--</intent-filter>-->
         <!--</receiver>-->
     </application>
 
