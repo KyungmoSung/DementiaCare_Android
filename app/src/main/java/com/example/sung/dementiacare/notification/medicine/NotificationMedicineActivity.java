@@ -47,7 +47,7 @@ public class NotificationMedicineActivity extends AppCompatActivity {
 
         results = medicineDao.getResults();
 
-        adapter = new ArrayAdapter(this, R.layout.listview_item_layout, results);
+        adapter = new ArrayAdapter(this, R.layout.list_item_info, results);
 
 
         listView.setAdapter(adapter);

@@ -1,6 +1,7 @@
 package com.example.sung.dementiacare.photo;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,10 +20,10 @@ import java.util.List;
 
 public class PhotoAdapter extends BaseAdapter {
     Context context;
-    List<PhotoDiaryModel> data;
+    List<DiaryDo> data;
     LayoutInflater inf;
 
-    public PhotoAdapter(Context context, List<PhotoDiaryModel> data) {
+    public PhotoAdapter(Context context, List<DiaryDo> data) {
         this.context = context;
         this.data = data;
         inf = (LayoutInflater) context.getSystemService
@@ -35,7 +36,7 @@ public class PhotoAdapter extends BaseAdapter {
     }
 
     @Override
-    public PhotoDiaryModel getItem(int position) {
+    public DiaryDo getItem(int position) {
         return data.get(position);
     }
 
@@ -59,7 +60,7 @@ public class PhotoAdapter extends BaseAdapter {
         ImageView ImageView = (ImageView) convertView.findViewById(R.id.grid_item_image);
 
         Glide.with(getContext())
-                .load(getItem(position).imageUri)
+                .load(getItem(position).getImageUri())
                 .into(ImageView);
 
         return convertView;

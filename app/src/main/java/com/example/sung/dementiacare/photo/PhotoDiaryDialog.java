@@ -2,7 +2,6 @@ package com.example.sung.dementiacare.photo;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
@@ -24,6 +23,9 @@ import butterknife.OnClick;
  */
 
 public class PhotoDiaryDialog extends Dialog {
+    String imageUri;
+    DiaryDo diaryDo;
+    DiaryDao diaryDao;
 
     @BindView(R.id.imageView)
     ImageView imageView;
@@ -34,8 +36,6 @@ public class PhotoDiaryDialog extends Dialog {
     @BindView(R.id.contents_edit_text)
     TextInputEditText et_contents;
 
-    PhotoDiaryModel photoDiary;
-    Uri imageUri;
 
     public PhotoDiaryDialog(Context context) {
         super(context);
@@ -47,11 +47,14 @@ public class PhotoDiaryDialog extends Dialog {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.dialog_add_photo);
         ButterKnife.bind(this);
+
+        diaryDao = new DiaryDao(getContext(), null);
+
     }
 
     @OnClick(R.id.button_cancel)
     public void clickCancel() {
-        photoDiary = null;
+        diaryDo = null;
         dismiss();
     }
 
@@ -60,18 +63,21 @@ public class PhotoDiaryDialog extends Dialog {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat dateformat = new SimpleDateFormat("yy.MM.dd");
         String datetime = dateformat.format(c.getTime());
-        photoDiary = new PhotoDiaryModel(imageUri, et_title.getText().toString(), et_contents.getText().toString(), datetime);
+        diaryDo = new DiaryDo(et_title.getText().toString(), et_contents.getText().toString(), datetime, imageUri);
+
+        diaryDao.insert(diaryDo);
+
         dismiss();
     }
 
-    public PhotoDiaryModel getPhotoDiary() {
-        return photoDiary;
+    public DiaryDo getPhotoDiary() {
+        return diaryDo;
     }
 
-    public void setImage(Uri imageUri) {
+    public void setImage(String imageUri) {
         this.imageUri = imageUri;
         Glide.with(getContext())
-                .load(imageUri)
+                .load(Uri.parse(imageUri))
                 .into(imageView);
     }
 }

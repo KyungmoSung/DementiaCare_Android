@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.example.sung.dementiacare.R;
 import com.example.sung.dementiacare.notification.NotificationChoiceListViewAdapter;
-import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
+//import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -118,9 +118,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     }
     void onClickButton0_1() {
 
-        intent = new Intent(getApplicationContext(), AlarmActivity.class);
-        intent.putExtra("mode", NotificationMedicineItemActivity.MODE_CREATE);
-        startActivity(intent);
+//        intent = new Intent(getApplicationContext(), AlarmActivity.class);
+//        intent.putExtra("mode", NotificationMedicineItemActivity.MODE_CREATE);
+//        startActivity(intent);
 
 
     }
@@ -188,7 +188,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 setContentView(R.layout.medicine_listview_item);
 
                 menuList[0] = "아침";
-                adapter = new ArrayAdapter(this, R.layout.listview_item_layout, menuList);
+                adapter = new ArrayAdapter(this, R.layout.list_item_info, menuList);
 
                 tv1 = (TextView)findViewById(R.id.textView0_0);
                 tv2 = (TextView)findViewById(R.id.textView0_1);
