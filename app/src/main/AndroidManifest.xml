@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,23 +23,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".information.InformationActivity"/>
-        <activity android:name=".information.InformationDementiaActivity"/>
-        <activity android:name=".information.InformationCareActivity"/>
-        <activity android:name=".information.InformationEnvironmentActivity"/>
-        <activity android:name=".information.InformationVideoActivity"/>
+        <activity android:name=".InformationActivity" />
+        <activity android:name=".InformationDementiaActivity" />
+        <activity android:name=".InformationCareActivity" />
+        <activity android:name=".InformationEnvironmentActivity" />
+        <activity android:name=".InformationVideoActivity" />
         <activity
-            android:label="@string/media_list_title"
-            android:name=".information.InformationVideoListActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize">
-            <meta-data android:name="minVersion" android:value="13"/>
-            <meta-data android:name="isLaunchableActivity" android:value="true"/>
+            android:name=".InformationVideoListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/media_list_title">
+            <meta-data
+                android:name="minVersion"
+                android:value="13" />
+            <meta-data
+                android:name="isLaunchableActivity"
+                android:value="true" />
         </activity>
-        <activity android:name=".information.PdfViewerActivity"/>
-        <activity android:name=".SubMenuSupportActivity"/>
-        <activity android:name=".SubMenuNotificationActivity"/>
-        <activity android:name=".SubMenuPictureActivity"/>
-        <activity android:name=".information.InformationEnvironmentWebViewActivity"/>
+        <activity android:name=".PdfViewerActivity" />
+        <activity android:name=".SubMenuSupportActivity" />
+        <activity android:name=".SubMenuNotificationActivity" />
+        <activity android:name=".SubMenuPictureActivity" />
+        <activity android:name=".notification.medicine.NotificationMedicineActivity" />
+        <activity android:name=".notification.medicine.NotificationMedicineItemActivity" />
+        <activity android:name=".InformationEnvironmentWebViewActivity" />
+        <activity android:name=".notification.information.NotificationTodayInformationActivity" />
+        <activity android:name=".notification.hopemessage.NotificationTodayMessageActivity" />
+        <activity android:name=".notification.CalendarActivity" />
+        <activity android:name=".notification.alarm.AlarmActivity"></activity>
+        <receiver android:name=".notification.alarm.AlarmReceiver">
+            <intent-filter>
+                <action android:name="com.example.sung.dementiacare.ALARM"></action>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
