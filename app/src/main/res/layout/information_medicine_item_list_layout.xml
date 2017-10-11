@@ -6,17 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.sung.dementiacare.MainActivity">
 
-    <include
-        android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -29,8 +19,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-
     </LinearLayout>
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_input_add" />
 </android.support.design.widget.CoordinatorLayout>
 
 

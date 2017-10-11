@@ -34,16 +34,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowCustomEnabled(true); //커스터마이징 하기 위해 필요
         actionBar.setDisplayShowTitleEnabled(false);
         ButterKnife.bind(this);
-
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        
     }
     private void setupWindowAnimations() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
