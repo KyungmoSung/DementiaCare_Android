@@ -10,4 +10,6 @@
     <color name="colorSupport">#f2bc23</color>
     <color name="colorAlarm">#00cac8</color>
     <color name="colorPhoto">#0896dc</color>
+
+    <color name="colorPhotoCardBg">#83caed</color>
 </resources>
