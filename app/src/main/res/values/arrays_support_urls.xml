@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="arrays_support">
+        <item>@array/support_1</item>
+        <item>@array/support_2</item>
+        <item>@array/support_3</item>
+        <item>@array/support_4</item>
+    </array>
+
+
+    <string-array name="support_1">
+        <item>중앙치매센터</item>
+        <item>https://www.nid.or.kr</item>
+        <item>logo_nid</item>
+    </string-array>
+
+    <string-array name="support_2">
+        <item>치매지원기관 치매상담콜센터</item>
+        <item>https://www.nid.or.kr/support/callcenter.aspx</item>
+        <item>logo_nid</item>
+    </string-array>
+
+    <string-array name="support_3">
+        <item>가족모임</item>
+        <item>https://www.nid.or.kr/support/jajo_group.aspx</item>
+        <item>logo_nid</item>
+    </string-array>
+
+    <string-array name="support_4">
+        <item>치매 파트너</item>
+        <item>https://partner.nid.or.kr/main/main.aspx</item>
+        <item>logo_partner</item>
+    </string-array>
+
+</resources>

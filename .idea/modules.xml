@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file:///Volumes/park/workspace/DementiaCare_Android/DementiaCare_Android.iml" filepath="/Volumes/park/workspace/DementiaCare_Android/DementiaCare_Android.iml" />
-      <module fileurl="file:///Volumes/park/workspace/DementiaCare_Android/app/app.iml" filepath="/Volumes/park/workspace/DementiaCare_Android/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DementiaCare.iml" filepath="$PROJECT_DIR$/DementiaCare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DementiaCare_Android.iml" filepath="$PROJECT_DIR$/DementiaCare_Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
