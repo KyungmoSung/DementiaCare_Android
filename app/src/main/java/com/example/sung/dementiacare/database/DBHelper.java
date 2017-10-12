@@ -36,7 +36,8 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("CREATE TABLE MESSAGE (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, text TEXT);");
 
-        db.execSQL("CREATE TABLE DIARY (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, contents TEXT, date TEXT, imageUri TEXT);");
+        db.execSQL("CREATE TABLE PHOTODIARY (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, contents TEXT, date TEXT, imageUri TEXT);");
+        db.execSQL("CREATE TABLE TEXTDIARY (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, contents TEXT, date TEXT);");
 
 
     }

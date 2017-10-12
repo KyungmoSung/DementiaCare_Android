@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#0896dc</color>
     <color name="colorTitle">#333333</color>
+    <color name="statusBar">#333333</color>
 
 
     <color name="colorInformation">#ea6f4d</color>
@@ -12,4 +13,5 @@
     <color name="colorPhoto">#0896dc</color>
 
     <color name="colorPhotoCardBg">#83caed</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.sung.dementiacare.photo;
+package com.example.sung.dementiacare.photo.PhotoDiary;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.sung.dementiacare.R;
+import com.example.sung.dementiacare.photo.PhotoDiary.PhotoDiaryDao;
+import com.example.sung.dementiacare.photo.PhotoDiary.PhotoDiaryDo;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,8 +26,8 @@ import butterknife.OnClick;
 
 public class PhotoDiaryDialog extends Dialog {
     String imageUri;
-    DiaryDo diaryDo;
-    DiaryDao diaryDao;
+    PhotoDiaryDo photoDiaryDo;
+    PhotoDiaryDao photoDiaryDao;
 
     @BindView(R.id.imageView)
     ImageView imageView;
@@ -48,13 +50,13 @@ public class PhotoDiaryDialog extends Dialog {
         setContentView(R.layout.dialog_add_photo);
         ButterKnife.bind(this);
 
-        diaryDao = new DiaryDao(getContext(), null);
+        photoDiaryDao = new PhotoDiaryDao(getContext(), null);
 
     }
 
     @OnClick(R.id.button_cancel)
     public void clickCancel() {
-        diaryDo = null;
+        photoDiaryDo = null;
         dismiss();
     }
 
@@ -63,15 +65,15 @@ public class PhotoDiaryDialog extends Dialog {
         Calendar c = Calendar.getInstance();
         SimpleDateFormat dateformat = new SimpleDateFormat("yy.MM.dd");
         String datetime = dateformat.format(c.getTime());
-        diaryDo = new DiaryDo(et_title.getText().toString(), et_contents.getText().toString(), datetime, imageUri);
+        photoDiaryDo = new PhotoDiaryDo(et_title.getText().toString(), et_contents.getText().toString(), datetime, imageUri);
 
-        diaryDao.insert(diaryDo);
+        photoDiaryDao.insert(photoDiaryDo);
 
         dismiss();
     }
 
-    public DiaryDo getPhotoDiary() {
-        return diaryDo;
+    public PhotoDiaryDo getPhotoDiary() {
+        return photoDiaryDo;
     }
 
     public void setImage(String imageUri) {

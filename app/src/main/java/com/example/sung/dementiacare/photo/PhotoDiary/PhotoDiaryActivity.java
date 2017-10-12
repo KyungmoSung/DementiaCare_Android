@@ -1,15 +1,18 @@
-package com.example.sung.dementiacare.photo;
+package com.example.sung.dementiacare.photo.PhotoDiary;
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -28,9 +31,9 @@ import gun0912.tedbottompicker.TedBottomPicker;
  */
 
 public class PhotoDiaryActivity extends AppCompatActivity {
-    ArrayList<DiaryDo> diary;
-    PhotoAdapter adapter;
-    DiaryDao diaryDao;
+    ArrayList<PhotoDiaryDo> diary;
+    PhotoDiaryAdapter adapter;
+    PhotoDiaryDao photoDiaryDao;
 
     @BindView(R.id.tool_bar_with_plus)
     Toolbar toolbar;
@@ -47,16 +50,21 @@ public class PhotoDiaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo_diary);
         ButterKnife.bind(this);
 
-
-        diaryDao = new DiaryDao(getApplicationContext(), null);
-
-        diary = diaryDao.getResults();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorPhoto));
+        }
 
         toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPhoto));
         toolbar_title.setTextColor(Color.WHITE);
         toolbar_title.setText("사진");
 
-        adapter = new PhotoAdapter(getApplicationContext(), diary);
+        photoDiaryDao = new PhotoDiaryDao(getApplicationContext(), null);
+        diary = photoDiaryDao.getResults();
+
+        adapter = new PhotoDiaryAdapter(getApplicationContext(), diary);
         gridView.setAdapter(adapter);
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,10 +72,6 @@ public class PhotoDiaryActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), PhotoDiaryDetailActivity.class);
                 intent.putExtra("diary",diary.get(i));
-//                intent.putExtra("image", diary.get(i).imageUri.toString());
-//                intent.putExtra("title", diary.get(i).title);
-//                intent.putExtra("contents", diary.get(i).contents);
-//                intent.putExtra("date", diary.get(i).date);
                 startActivity(intent);
             }
         });

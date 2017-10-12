@@ -1,20 +1,19 @@
 package com.example.sung.dementiacare;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.transition.Slide;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.example.sung.dementiacare.information.InformationActivity;
-import com.example.sung.dementiacare.photo.PhotoMenuActivity;
+import com.example.sung.dementiacare.photo.DiaryMenuActivity;
 import com.example.sung.dementiacare.support.SupportActivity;
 
 import butterknife.ButterKnife;
@@ -35,7 +34,14 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false);
         ButterKnife.bind(this);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(R.color.statusBar));
+        }
     }
+
     private void setupWindowAnimations() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
             Fade fade = new Fade();
@@ -87,6 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.layout_picture)
     void openPictureActivity() {
-        startActivity(new Intent(this, PhotoMenuActivity.class));
+        startActivity(new Intent(this, DiaryMenuActivity.class));
     }
 }

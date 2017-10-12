@@ -42,10 +42,12 @@
         </activity>
         <activity android:name=".support.SupportActivity" />
         <activity android:name=".SubMenuNotificationActivity" />
-        <activity android:name=".photo.PhotoMenuActivity" />
-        <activity android:name=".photo.PhotoDiaryActivity" />
-        <activity android:name=".photo.TextDiaryActivity" />
-        <activity android:name=".photo.PhotoDiaryDetailActivity" />
+        <activity android:name=".photo.DiaryMenuActivity" />
+        <activity android:name=".photo.PhotoDiary.PhotoDiaryActivity" />
+        <activity android:name=".photo.PhotoDiary.PhotoDiaryDetailActivity" />
+        <activity android:name=".photo.TextDiary.TextDiaryActivity" />
+        <activity android:name=".photo.TextDiary.TextDiaryDetailActivity" />
+        <activity android:name=".photo.TextDiary.TextDiaryEditActivity" />
         <activity android:name=".notification.medicine.NotificationMedicineActivity" />
         <activity android:name=".notification.medicine.NotificationMedicineItemActivity" />
         <activity android:name=".notification.information.NotificationTodayInformationActivity" />
@@ -62,7 +64,6 @@
                 android:name="isLaunchableActivity"
                 android:value="true" />
         </activity>
-
         <!--<activity android:name=".notification.alarm.AlarmActivity"></activity>-->
         <!--<receiver android:name=".notification.alarm.AlarmReceiver">-->
         <!--<intent-filter>-->
