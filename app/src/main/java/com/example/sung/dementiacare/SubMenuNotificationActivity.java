@@ -25,7 +25,7 @@ public class SubMenuNotificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_submenu_support);
+        setContentView(R.layout.activity_submenu_notification);
 
         ButterKnife.bind(this);
 
