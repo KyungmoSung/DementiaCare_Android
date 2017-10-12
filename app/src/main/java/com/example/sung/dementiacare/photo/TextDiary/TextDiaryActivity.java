@@ -1,4 +1,4 @@
-package com.example.sung.dementiacare.information;
+package com.example.sung.dementiacare.photo.TextDiary;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,68 +12,72 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Sung on 2017. 9. 3..
  */
 
-public class InformationVideoActivity extends AppCompatActivity {
-    final int ARRAY_RESOURCE_ID = R.array.list_info_title_media;
+public class TextDiaryActivity extends AppCompatActivity {
 
-    static String[] menuList;
-    String title;
+    ArrayList<TextDiaryDo> diary;
+    TextDiaryAdapter adapter;
+    TextDiaryDao textDiaryDao;
 
-    @BindView(R.id.list_info_title)
-    ListView listView;
-
-    @BindView(R.id.tool_bar)
+    @BindView(R.id.tool_bar_with_plus)
     Toolbar toolbar;
 
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
 
+    @BindView(R.id.lv_text_diary)
+    ListView listView;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_submenu_information);
+        setContentView(R.layout.activity_text_diary);
         ButterKnife.bind(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(getResources().getColor(R.color.colorInformation));
+            window.setStatusBarColor(getResources().getColor(R.color.colorPhoto));
         }
 
-        Intent intent = getIntent();
+        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPhoto));
+        toolbar_title.setTextColor(Color.WHITE);
+        toolbar_title.setText("일기");
 
-        if (intent.hasExtra("title")) {
-            title = intent.getStringExtra("title");
-            toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
-            toolbar_title.setTextColor(Color.WHITE);
-            toolbar_title.setText(title);
-        }
+        textDiaryDao = new TextDiaryDao(getApplicationContext(), null);
+        diary = textDiaryDao.getResults();
 
-        menuList = getResources().getStringArray(ARRAY_RESOURCE_ID);
-
-        final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item_info, menuList);
+        adapter = new TextDiaryAdapter(getApplicationContext(), diary);
         listView.setAdapter(adapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), InformationVideoListActivity.class);
-                intent.putExtra("sub_index", position);
-                intent.putExtra("title", menuList[position]);
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), TextDiaryDetailActivity.class);
+                intent.putExtra("diary",diary.get(i));
                 startActivity(intent);
             }
         });
+    }
+
+    @OnClick(R.id.add_btn)
+    public void add() {
+        Intent intent = new Intent(getApplicationContext(), TextDiaryEditActivity.class);
+        startActivity(intent);
     }
 }

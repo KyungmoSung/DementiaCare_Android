@@ -1,4 +1,4 @@
-package com.example.sung.dementiacare.photo;
+package com.example.sung.dementiacare.photo.PhotoDiary;
 
 import android.net.Uri;
 import android.os.Parcel;
@@ -8,7 +8,7 @@ import android.os.Parcelable;
  * Created by skm28 on 2017-10-04.
  */
 
-public class DiaryDo implements Parcelable{
+public class PhotoDiaryDo implements Parcelable{
 
     private int ino;
     private String title;
@@ -16,7 +16,7 @@ public class DiaryDo implements Parcelable{
     private String date;
     private String imageUri;
 
-    public DiaryDo(int ino, String title, String contents, String date, String imageUri) {
+    public PhotoDiaryDo(int ino, String title, String contents, String date, String imageUri) {
         this.ino = ino;
         this.imageUri = imageUri;
         this.title = title;
@@ -24,14 +24,14 @@ public class DiaryDo implements Parcelable{
         this.date = date;
     }
 
-    public DiaryDo(String title, String contents, String date, String imageUri) {
+    public PhotoDiaryDo(String title, String contents, String date, String imageUri) {
         this.imageUri = imageUri;
         this.title = title;
         this.contents = contents;
         this.date = date;
     }
 
-    public DiaryDo(String title, String contents, String date) {
+    public PhotoDiaryDo(String title, String contents, String date) {
         this.title = title;
         this.contents = contents;
         this.date = date;
@@ -78,21 +78,21 @@ public class DiaryDo implements Parcelable{
         this.date = date;
     }
 
-    public static final Creator<DiaryDo> CREATOR
-            = new Creator<DiaryDo>() {
+    public static final Creator<PhotoDiaryDo> CREATOR
+            = new Creator<PhotoDiaryDo>() {
 
         @Override
-        public DiaryDo createFromParcel(Parcel in) {
-            return new DiaryDo(in);
+        public PhotoDiaryDo createFromParcel(Parcel in) {
+            return new PhotoDiaryDo(in);
         }
 
         @Override
-        public DiaryDo[] newArray(int size) {
-            return new DiaryDo[size];
+        public PhotoDiaryDo[] newArray(int size) {
+            return new PhotoDiaryDo[size];
         }
     };
 
-    private DiaryDo(Parcel in) {
+    private PhotoDiaryDo(Parcel in) {
         ino = in.readInt();
         title = in.readString();
         contents = in.readString();

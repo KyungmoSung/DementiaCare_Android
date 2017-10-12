@@ -1,29 +1,34 @@
-package com.example.sung.dementiacare.photo;
+package com.example.sung.dementiacare.photo.TextDiary;
 
 import android.content.Context;
-import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sung.dementiacare.R;
+import com.example.sung.dementiacare.photo.PhotoDiary.PhotoDiaryDo;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by skm28 on 2017-10-04.
  */
 
-public class PhotoAdapter extends BaseAdapter {
+public class TextDiaryAdapter extends BaseAdapter {
     Context context;
-    List<DiaryDo> data;
+    ArrayList<TextDiaryDo> data;
     LayoutInflater inf;
 
-    public PhotoAdapter(Context context, List<DiaryDo> data) {
+    public TextDiaryAdapter(Context context, ArrayList<TextDiaryDo> data) {
         this.context = context;
         this.data = data;
         inf = (LayoutInflater) context.getSystemService
@@ -36,7 +41,7 @@ public class PhotoAdapter extends BaseAdapter {
     }
 
     @Override
-    public DiaryDo getItem(int position) {
+    public TextDiaryDo getItem(int position) {
         return data.get(position);
     }
 
@@ -51,17 +56,17 @@ public class PhotoAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        int size = getContext().getResources().getDisplayMetrics().widthPixels / 3;
+
         if (convertView == null) {
-            convertView = inf.inflate(R.layout.grid_item_photo, null);
-            convertView.setLayoutParams(new GridView.LayoutParams(size, size));
+            convertView = inf.inflate(R.layout.list_item_text_diary, null);
         }
+        TextView tv_date = (TextView) convertView.findViewById(R.id.tv_date);
+        TextView tv_title = (TextView) convertView.findViewById(R.id.tv_title);
+        TextView tv_contents = (TextView) convertView.findViewById(R.id.tv_contents);
 
-        ImageView ImageView = (ImageView) convertView.findViewById(R.id.grid_item_image);
-
-        Glide.with(getContext())
-                .load(getItem(position).getImageUri())
-                .into(ImageView);
+        tv_date.setText(getItem(position).getDate());
+        tv_title.setText(getItem(position).getTitle());
+        tv_contents.setText(getItem(position).getContents());
 
         return convertView;
     }
