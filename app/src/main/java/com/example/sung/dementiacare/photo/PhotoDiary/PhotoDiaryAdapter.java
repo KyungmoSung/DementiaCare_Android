@@ -11,7 +11,9 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.example.sung.dementiacare.R;
 import com.example.sung.dementiacare.photo.PhotoDiary.PhotoDiaryDo;
+import com.example.sung.dementiacare.photo.TextDiary.TextDiaryDo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,10 +22,10 @@ import java.util.List;
 
 public class PhotoDiaryAdapter extends BaseAdapter {
     Context context;
-    List<PhotoDiaryDo> data;
+    ArrayList<PhotoDiaryDo> data;
     LayoutInflater inf;
 
-    public PhotoDiaryAdapter(Context context, List<PhotoDiaryDo> data) {
+    public PhotoDiaryAdapter(Context context, ArrayList<PhotoDiaryDo> data) {
         this.context = context;
         this.data = data;
         inf = (LayoutInflater) context.getSystemService
@@ -64,5 +66,10 @@ public class PhotoDiaryAdapter extends BaseAdapter {
                 .into(ImageView);
 
         return convertView;
+    }
+
+    public void swapItems(ArrayList<PhotoDiaryDo> data) {
+        this.data = data;
+        notifyDataSetChanged();
     }
 }

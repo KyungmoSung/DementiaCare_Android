@@ -80,4 +80,12 @@ public class TextDiaryActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), TextDiaryEditActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        diary = textDiaryDao.getResults();
+        adapter.swapItems(textDiaryDao.getResults());
+    }
+
 }

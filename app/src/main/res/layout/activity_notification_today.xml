@@ -4,6 +4,10 @@
     android:layout_height="match_parent">
 
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"/>
+
     <TextView
         android:id="@+id/notification_today_layout_textView0"
         android:layout_width="match_parent"

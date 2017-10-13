@@ -70,4 +70,9 @@ public class TextDiaryAdapter extends BaseAdapter {
 
         return convertView;
     }
+
+    public void swapItems(ArrayList<TextDiaryDo> data) {
+        this.data = data;
+        notifyDataSetChanged();
+    }
 }

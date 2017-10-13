@@ -12,6 +12,8 @@
         android:id="@+id/photo_gridview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:numColumns="3" />
+        android:horizontalSpacing="2dp"
+        android:numColumns="3"
+        android:verticalSpacing="2dp" />
 
 </LinearLayout>

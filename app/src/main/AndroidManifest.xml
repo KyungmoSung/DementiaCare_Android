@@ -41,7 +41,7 @@
                 android:value="true" />
         </activity>
         <activity android:name=".support.SupportActivity" />
-        <activity android:name=".SubMenuNotificationActivity" />
+        <activity android:name=".notification.NotificationActivity" />
         <activity android:name=".photo.DiaryMenuActivity" />
         <activity android:name=".photo.PhotoDiary.PhotoDiaryActivity" />
         <activity android:name=".photo.PhotoDiary.PhotoDiaryDetailActivity" />

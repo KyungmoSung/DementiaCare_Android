@@ -8,11 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.transition.Slide;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.example.sung.dementiacare.information.InformationActivity;
+import com.example.sung.dementiacare.notification.NotificationActivity;
 import com.example.sung.dementiacare.photo.DiaryMenuActivity;
 import com.example.sung.dementiacare.support.SupportActivity;
 
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.layout_notification)
     void openNotificationActivity() {
-        startActivity(new Intent(this, SubMenuNotificationActivity.class));
+        startActivity(new Intent(this, NotificationActivity.class));
     }
 
     @OnClick(R.id.layout_picture)
