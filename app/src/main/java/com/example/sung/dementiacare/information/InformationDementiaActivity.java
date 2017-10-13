@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,7 +31,7 @@ public class InformationDementiaActivity extends AppCompatActivity {
     final int[] ARRAY_RESOURCE_ID = {R.array.list_info_title_dementia, R.array.sub_list_info_title_dementia_1, R.array.sub_list_info_title_dementia_2, R.array.sub_list_info_title_dementia_3, R.array.sub_list_info_title_dementia_4};
 
     int mainIndex;
-    static String[] menuList;
+    String[] menuList;
     String title;
 
     @BindView(R.id.list_info_title)
@@ -59,7 +60,7 @@ public class InformationDementiaActivity extends AppCompatActivity {
 
         if (intent.hasExtra("title")) {
             title = intent.getStringExtra("title");
-            toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorInformation));
             toolbar_title.setTextColor(Color.WHITE);
             toolbar_title.setText(title);
         }
@@ -78,14 +79,14 @@ public class InformationDementiaActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = getIntent();
                 if (intent.hasExtra("main_index")) {
-                    intent = new Intent(getApplicationContext(), PdfViewerActivity.class);
+                    intent = new Intent(InformationDementiaActivity.this, PdfViewerActivity.class);
                     intent.putExtra("menu_index", MENU_INDEX);
                     intent.putExtra("main_index", mainIndex);
                     intent.putExtra("sub_index", position);
                     intent.putExtra("title", menuList[position]);
                     startActivity(intent);
                 } else {
-                    intent = new Intent(getApplicationContext(), InformationDementiaActivity.class);
+                    intent = new Intent(InformationDementiaActivity.this, InformationDementiaActivity.class);
                     intent.putExtra("main_index", position);
                     intent.putExtra("title", menuList[position]);
                     startActivity(intent);

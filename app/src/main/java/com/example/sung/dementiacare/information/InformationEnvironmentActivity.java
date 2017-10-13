@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 public class InformationEnvironmentActivity extends AppCompatActivity {
     final int ARRAY_RESOURCE_ID = R.array.list_info_title_environment;
 
-    static String[] menuList;
+    String[] menuList;
     String title;
 
     @BindView(R.id.list_info_title)

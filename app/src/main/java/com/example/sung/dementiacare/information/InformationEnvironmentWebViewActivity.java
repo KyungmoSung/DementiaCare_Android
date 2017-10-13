@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 public class InformationEnvironmentWebViewActivity extends AppCompatActivity {
     final int INFORMATION_ENV_RESOURCE_ID = R.array.arrays_environment;
 
-    public static String[][] envArray;
+    String[][] envArray;
 
     @BindView(R.id.webView)
     WebView webView;

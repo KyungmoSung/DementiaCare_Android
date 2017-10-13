@@ -30,7 +30,7 @@ public class InformationCareActivity extends AppCompatActivity {
     final int[] ARRAY_RESOURCE_ID = {R.array.list_info_title_care, R.array.sub_list_info_title_care_3};
 
     int mainIndex;
-    static String[] menuList;
+    String[] menuList;
     String title;
 
     @BindView(R.id.list_info_title)
@@ -77,6 +77,7 @@ public class InformationCareActivity extends AppCompatActivity {
                     intent.putExtra("menu_index", MENU_INDEX);
                     intent.putExtra("main_index", mainIndex);
                     intent.putExtra("sub_index", position);
+                    intent.putExtra("title", menuList[position]);
                     startActivity(intent);
                 }
             });
@@ -89,14 +90,13 @@ public class InformationCareActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = getIntent();
-
                     if (position == 2 && !intent.hasExtra("main_index")) {
-                        intent = new Intent(getApplicationContext(), InformationCareActivity.class);
+                        intent = new Intent(InformationCareActivity.this, InformationCareActivity.class);
                         intent.putExtra("main_index", position);
                         intent.putExtra("title", menuList[position]);
                         startActivity(intent);
                     } else {
-                        intent = new Intent(getApplicationContext(), PdfViewerActivity.class);
+                        intent = new Intent(InformationCareActivity.this, PdfViewerActivity.class);
                         intent.putExtra("menu_index", MENU_INDEX);
                         intent.putExtra("main_index", position);
                         intent.putExtra("sub_index", 0);

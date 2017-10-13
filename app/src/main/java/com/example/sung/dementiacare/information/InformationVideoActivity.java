@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 public class InformationVideoActivity extends AppCompatActivity {
     final int ARRAY_RESOURCE_ID = R.array.list_info_title_media;
 
-    static String[] menuList;
+    String[] menuList;
     String title;
 
     @BindView(R.id.list_info_title)
