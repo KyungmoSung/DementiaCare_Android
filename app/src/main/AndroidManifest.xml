@@ -45,6 +45,7 @@
         <activity android:name=".photo.DiaryMenuActivity" />
         <activity android:name=".photo.PhotoDiary.PhotoDiaryActivity" />
         <activity android:name=".photo.PhotoDiary.PhotoDiaryDetailActivity" />
+        <activity android:name=".photo.PhotoDiary.PhotoDiaryEditActivity" />
         <activity android:name=".photo.TextDiary.TextDiaryActivity" />
         <activity android:name=".photo.TextDiary.TextDiaryDetailActivity" />
         <activity android:name=".photo.TextDiary.TextDiaryEditActivity" />

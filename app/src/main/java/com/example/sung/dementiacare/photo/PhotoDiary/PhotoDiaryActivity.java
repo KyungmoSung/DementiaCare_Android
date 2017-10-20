@@ -80,7 +80,13 @@ public class PhotoDiaryActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        diary = photoDiaryDao.getResults();
+        adapter.swapItems(diary);
     }
 
     @OnClick(R.id.add_btn)
@@ -101,33 +107,9 @@ public class PhotoDiaryActivity extends AppCompatActivity {
                 .setOnImageSelectedListener(new TedBottomPicker.OnImageSelectedListener() {
                     @Override
                     public void onImageSelected(final Uri uri) {
-                        final PhotoDiaryDialog dialog = new PhotoDiaryDialog(PhotoDiaryActivity.this);
-                        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-                        lp.copyFrom(dialog.getWindow().getAttributes());
-                        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-                        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-
-
-                        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
-                            @Override
-                            public void onShow(DialogInterface dialogInterface) {
-                                dialog.setImage(uri.toString());
-                            }
-                        });
-
-                        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                            @Override
-                            public void onDismiss(DialogInterface dialogInterface) {
-                                if (dialog.getPhotoDiary() != null) {
-                                    diary = photoDiaryDao.getResults();
-                                    adapter.swapItems(photoDiaryDao.getResults());
-
-                                }
-                            }
-                        });
-
-                        dialog.show();
-                        dialog.getWindow().setAttributes(lp);
+                        Intent intent = new Intent(getApplicationContext(), PhotoDiaryEditActivity.class);
+                        intent.putExtra("imageUri", uri.toString());
+                        startActivity(intent);
                     }
                 })
                 .create();

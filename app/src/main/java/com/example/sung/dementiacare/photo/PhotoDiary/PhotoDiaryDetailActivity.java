@@ -67,10 +67,6 @@ public class PhotoDiaryDetailActivity extends AppCompatActivity {
         }
 
         Intent intent = getIntent();
-//        Uri imageUri = Uri.parse(intent.getStringExtra("image"));
-//        String title = intent.getStringExtra("title");
-//        String contents = intent.getStringExtra("contents");
-//        String date = intent.getStringExtra("date");
         photoDiaryDo = intent.getParcelableExtra("diary");
 
         toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPhoto));
@@ -106,7 +102,10 @@ public class PhotoDiaryDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case R.id.action_modify:
-                Toast.makeText(this, "action_modify",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, PhotoDiaryEditActivity.class);
+                intent.putExtra("diary",photoDiaryDo);
+                finish();
+                startActivity(intent);
                 break;
             case R.id.action_delete:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -115,13 +114,15 @@ public class PhotoDiaryDetailActivity extends AppCompatActivity {
                 builder.setPositiveButton("네",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-//                                Toast.makeText(getApplicationContext(),"예를 선택했습니다.",Toast.LENGTH_LONG).show();
+                                photoDiaryDao = new PhotoDiaryDao(getApplicationContext(), null);
+                                photoDiaryDao.delete(photoDiaryDo);
+                                Toast.makeText(getApplicationContext(),"사진을 삭제했습니다",Toast.LENGTH_LONG).show();
+                                finish();
                             }
                         });
                 builder.setNegativeButton("아니오",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-//                                Toast.makeText(getApplicationContext(),"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
                             }
                         });
                 builder.show();
