@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.example.sung.dementiacare.R;
 import com.example.sung.dementiacare.notification.NotificationChoiceListViewAdapter;
+import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
 //import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
 
 import butterknife.ButterKnife;
@@ -118,13 +119,12 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     }
     void onClickButton0_1() {
 
-//        intent = new Intent(getApplicationContext(), AlarmActivity.class);
-//        intent.putExtra("mode", NotificationMedicineItemActivity.MODE_CREATE);
-//        startActivity(intent);
+        intent = new Intent(getApplicationContext(), AlarmActivity.class);
+        intent.putExtra("mode", NotificationMedicineItemActivity.MODE_CREATE);
+        startActivity(intent);
 
 
     }
-
 
     void setContentViewMode(int mode) {
         switch(mode) {
