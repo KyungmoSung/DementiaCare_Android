@@ -67,7 +67,8 @@ public class AlarmActivity extends AppCompatActivity {
     void onClickButton0_0() {
 
         String name = editText0_0.getText().toString();
-        AlarmDo alarmDo = new AlarmDo(name, timePicker0_0, 0);
+
+        AlarmDo alarmDo = new AlarmDo(name, timePicker0_0.getCurrentHour(),timePicker0_0.getCurrentMinute(), 0);
         alarmDao.insert(alarmDo);
 
         finish();

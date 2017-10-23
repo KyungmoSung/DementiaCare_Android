@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
+import com.example.sung.dementiacare.notification.alarm.AlarmDo;
 
 import java.util.ArrayList;
 
@@ -19,10 +20,21 @@ import java.util.ArrayList;
 public class NotificationChoiceListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>() ;
+    private ArrayList<AlarmDo> alarmDo;
 
     // ListViewAdapter의 생성자
     public NotificationChoiceListViewAdapter() {
 
+
+    }
+
+    public NotificationChoiceListViewAdapter(ArrayList<AlarmDo> alarmDo) {
+        this.alarmDo = alarmDo;
+
+        for(AlarmDo alarmDo1 : alarmDo) {
+            this.addItem(alarmDo1.getName());
+
+        }
 
     }
 

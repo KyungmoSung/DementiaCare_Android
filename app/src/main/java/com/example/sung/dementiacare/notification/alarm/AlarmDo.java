@@ -1,8 +1,5 @@
 package com.example.sung.dementiacare.notification.alarm;
 
-import android.widget.TimePicker;
-
-import java.text.SimpleDateFormat;
 
 /**
  * Created by Minwoo on 2017. 10. 5..
@@ -12,31 +9,62 @@ public class AlarmDo {
 
     private int ino;
     private String name;
-    private TimePicker timePicker;
+    private int hour;
+    private int minutes;
     private int repeat;
 
-    public AlarmDo(String name, TimePicker timePicker, int repeat) {
+    public AlarmDo(String name, int hour, int minutes, int repeat) {
         this.name = name;
-        this.timePicker = timePicker;
+        this.hour = hour;
+        this.minutes = minutes;
         this.repeat = repeat;
     }
 
-    public AlarmDo(int ino, String name, TimePicker timePicker, int repeat) {
+    public AlarmDo(int ino, String name, int hour, int minutes, int repeat) {
         this.ino = ino;
         this.name = name;
-        this.timePicker = timePicker;
+        this.hour = hour;
+        this.minutes = minutes;
         this.repeat = repeat;
+    }
+
+    public int getIno() {
+        return ino;
+    }
+
+    public void setIno(int ino) {
+        this.ino = ino;
     }
 
     public String getName() {
         return name;
     }
 
-    public TimePicker getTimePicker() {
-        return timePicker;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
     }
 
     public int getRepeat() {
         return repeat;
+    }
+
+    public void setRepeat(int repeat) {
+        this.repeat = repeat;
     }
 }

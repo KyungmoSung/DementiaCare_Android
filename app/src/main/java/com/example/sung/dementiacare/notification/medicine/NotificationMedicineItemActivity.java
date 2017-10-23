@@ -14,7 +14,11 @@ import android.widget.TextView;
 import com.example.sung.dementiacare.R;
 import com.example.sung.dementiacare.notification.NotificationChoiceListViewAdapter;
 import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
+import com.example.sung.dementiacare.notification.alarm.AlarmDao;
+import com.example.sung.dementiacare.notification.alarm.AlarmDo;
 //import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
+
+import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -55,12 +59,16 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     MedicineDao medicineDao;
     MedicineDo medicineDo;
 
+    AlarmDao alarmDao;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         medicineDao = new MedicineDao(getApplicationContext(), null);
 
+        alarmDao = new AlarmDao(getApplicationContext(), null);
 
         intent = getIntent();
 
@@ -166,17 +174,15 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 bt1 = (Button)findViewById(R.id.button1);
                 listView1 = (ListView)findViewById(R.id.list_view1);
 
+                ArrayList<AlarmDo> arrayList = alarmDao.getResults();
 
-                adapter2 = new NotificationChoiceListViewAdapter();
+
+                adapter2 = new NotificationChoiceListViewAdapter(arrayList);
 
                 listView1.setAdapter(adapter2);
 
-                adapter2.addItem("아침") ;
-                adapter2.addItem("점심") ;
-                adapter2.addItem("저녁") ;
 
                 medicineDo = medicineDao.getResultByIno(index);
-
                 et0.setText(medicineDo.getName());
 
                 bt0.setText("완료");
