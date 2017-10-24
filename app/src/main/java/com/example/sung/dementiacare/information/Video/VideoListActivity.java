@@ -1,5 +1,5 @@
 
-package com.example.sung.dementiacare.information;
+package com.example.sung.dementiacare.information.Video;
 
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -54,7 +54,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 @TargetApi(13)
-public final class InformationVideoListActivity extends AppCompatActivity implements OnFullscreenListener {
+public final class VideoListActivity extends AppCompatActivity implements OnFullscreenListener {
     
     final int INFORMATION_MEDIA_RESOURCE_ID[] = {R.array.arrays_video_1, R.array.arrays_video_2, R.array.arrays_video_3, R.array.arrays_video_4, R.array.arrays_video_5, R.array.arrays_video_6, R.array.arrays_video_7};
     
@@ -267,6 +267,7 @@ public final class InformationVideoListActivity extends AppCompatActivity implem
 
         @Override
         public void onListItemClick(ListView l, View v, int position, long id) {
+
             String videoId = VIDEO_LIST.get(position).videoId;
 
             VideoFragment videoFragment =
@@ -460,7 +461,7 @@ public final class InformationVideoListActivity extends AppCompatActivity implem
         public void onInitializationSuccess(Provider provider, YouTubePlayer player, boolean restored) {
             this.player = player;
             player.addFullscreenControlFlag(YouTubePlayer.FULLSCREEN_FLAG_CUSTOM_LAYOUT);
-            player.setOnFullscreenListener((InformationVideoListActivity) getActivity());
+            player.setOnFullscreenListener((VideoListActivity) getActivity());
             if (!restored && videoId != null) {
                 player.cueVideo(videoId);
             }

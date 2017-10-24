@@ -1,4 +1,4 @@
-package com.example.sung.dementiacare.information;
+package com.example.sung.dementiacare.information.Video;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
  * Created by Sung on 2017. 9. 3..
  */
 
-public class InformationVideoActivity extends AppCompatActivity {
+public class VideoActivity extends AppCompatActivity {
     final int ARRAY_RESOURCE_ID = R.array.list_info_title_media;
 
     String[] menuList;
@@ -43,7 +43,7 @@ public class InformationVideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_submenu_information);
+        setContentView(R.layout.activity_list_menu);
         ButterKnife.bind(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -69,7 +69,7 @@ public class InformationVideoActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), InformationVideoListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), VideoListActivity.class);
                 intent.putExtra("sub_index", position);
                 intent.putExtra("title", menuList[position]);
                 startActivity(intent);

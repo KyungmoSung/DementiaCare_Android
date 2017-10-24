@@ -12,17 +12,15 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by Sung on 2017. 9. 3..
@@ -31,6 +29,7 @@ import butterknife.ButterKnife;
 public class SupportActivity extends AppCompatActivity {
 
     final int SUPPORT_RESOURCE_ID = R.array.arrays_support;
+    Intent intent = new Intent(Intent.ACTION_VIEW);
 
     static String[][] menuList;
 
@@ -40,8 +39,8 @@ public class SupportActivity extends AppCompatActivity {
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
 
-    @BindView(R.id.list_support)
-    ListView listView;
+//    @BindView(R.id.list_support)
+//    ListView listView;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -56,24 +55,40 @@ public class SupportActivity extends AppCompatActivity {
             window.setStatusBarColor(getResources().getColor(R.color.colorSupport));
         }
 
-        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorSupport));
+        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorSupport));
         toolbar_title.setTextColor(Color.WHITE);
         toolbar_title.setText("지원");
 
         menuList = getArrayFromResource(SUPPORT_RESOURCE_ID);
 
-        SupportListAdapter adapter = new SupportListAdapter(menuList, this);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                Uri uri = Uri.parse(menuList[position][1]);
-                intent.setData(uri);
-                startActivity(intent);
-            }
-        });
+    }
 
+    @OnClick(R.id.card_center)
+    public void showCenter() {
+        Uri uri = Uri.parse(menuList[0][1]);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.card_call)
+    public void showCall() {
+        Uri uri = Uri.parse(menuList[1][1]);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.card_family)
+    public void showFamily() {
+        Uri uri = Uri.parse(menuList[2][1]);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.card_partner)
+    public void showPartner() {
+        Uri uri = Uri.parse(menuList[3][1]);
+        intent.setData(uri);
+        startActivity(intent);
     }
 
     public String[][] getArrayFromResource(int resourceId) {

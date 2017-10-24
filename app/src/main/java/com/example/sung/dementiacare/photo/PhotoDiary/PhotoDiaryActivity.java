@@ -13,11 +13,15 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +33,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import gun0912.tedbottompicker.TedBottomPicker;
+import tourguide.tourguide.Overlay;
+import tourguide.tourguide.Pointer;
+import tourguide.tourguide.ToolTip;
+import tourguide.tourguide.TourGuide;
 
 /**
  * Created by Sung on 2017. 9. 3..
@@ -39,15 +47,19 @@ public class PhotoDiaryActivity extends AppCompatActivity {
     ArrayList<PhotoDiaryDo> diary;
     PhotoDiaryAdapter adapter;
     PhotoDiaryDao photoDiaryDao;
+    public TourGuide mTutorialHandler;
 
     @BindView(R.id.tool_bar_with_plus)
     Toolbar toolbar;
-
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
+    @BindView(R.id.add_btn)
+    ImageButton add_btn;
 
     @BindView(R.id.photo_gridview)
     GridView gridView;
+    @BindView(R.id.layout_empty)
+    LinearLayout layout_empty;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,10 +99,32 @@ public class PhotoDiaryActivity extends AppCompatActivity {
         super.onResume();
         diary = photoDiaryDao.getResults();
         adapter.swapItems(diary);
+
+        if(diary.size() > 0){
+            layout_empty.setVisibility(View.GONE);
+            if(mTutorialHandler != null){
+                mTutorialHandler.cleanUp();
+            }
+        } else {
+            layout_empty.setVisibility(View.VISIBLE);
+
+            ToolTip toolTip = new ToolTip()
+                    .setTitle("사진 추가")
+                    .setDescription("버튼을 눌러 새로운 사진을 추가해보세요!")
+                    .setGravity(Gravity.LEFT|Gravity.BOTTOM);
+
+            mTutorialHandler = TourGuide.init(this).with(TourGuide.Technique.Click)
+                    .motionType(TourGuide.MotionType.ClickOnly)
+                    .setPointer(new Pointer())
+                    .setToolTip(toolTip)
+                    .setOverlay(new Overlay())
+                    .playOn(add_btn);
+        }
     }
 
     @OnClick(R.id.add_btn)
     public void addPhoto() {
+        mTutorialHandler.cleanUp();
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkPermission()) {
                 showPicker();

@@ -25,12 +25,12 @@
         <activity android:name=".information.InformationActivity" />
         <activity android:name=".information.InformationDementiaActivity" />
         <activity android:name=".information.InformationCareActivity" />
-        <activity android:name=".information.InformationEnvironmentActivity" />
-        <activity android:name=".information.InformationVideoActivity" />
+        <activity android:name=".information.Environment.EnvironmentActivity" />
+        <activity android:name=".information.Video.VideoActivity" />
         <activity android:name=".information.PdfViewerActivity" />
-        <activity android:name=".information.InformationEnvironmentWebViewActivity" />
+        <activity android:name=".information.Environment.EnvironmentWebViewActivity" />
         <activity
-            android:name="information.InformationVideoListActivity"
+            android:name=".information.Video.VideoListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/media_list_title">
             <meta-data
@@ -55,7 +55,7 @@
         <activity android:name=".notification.hopemessage.NotificationTodayMessageActivity" />
         <activity android:name=".notification.CalendarActivity" />
         <activity
-            android:name=".information.InformationVideoListActivity"
+            android:name=".information.Video.VideoListActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/media_list_title">
             <meta-data

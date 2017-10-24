@@ -57,7 +57,6 @@ public class NotificationActivity extends AppCompatActivity {
 
     @OnClick(R.id.card_medicine)
     void medicine(){
-
         intent = new Intent(getApplicationContext(), NotificationMedicineActivity.class);
         startActivity(intent);
 
@@ -65,7 +64,6 @@ public class NotificationActivity extends AppCompatActivity {
 
     @OnClick(R.id.card_calendar)
     void calendar(){
-
         intent = new Intent(getApplicationContext(), CalendarActivity.class);
         startActivity(intent);
 
@@ -73,7 +71,6 @@ public class NotificationActivity extends AppCompatActivity {
 
     @OnClick(R.id.card_info)
     void todayInfo(){
-
         intent = new Intent(getApplicationContext(), NotificationTodayInformationActivity.class);
         startActivity(intent);
 
@@ -81,7 +78,6 @@ public class NotificationActivity extends AppCompatActivity {
 
     @OnClick(R.id.card_message)
     void todayMessage(){
-
         intent = new Intent(getApplicationContext(), NotificationTodayMessageActivity.class);
         startActivity(intent);
 
