@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_noti_menu">
+        <item>@array/noti_menu_1</item>
+        <item>@array/noti_menu_2</item>
+        <item>@array/noti_menu_3</item>
+        <item>@array/noti_menu_4</item>
+    </string-array>
+
+    <string-array name="noti_menu_1">
+        <item>약물</item>
+        <item>ic_pill</item>
+    </string-array>
+    <string-array name="noti_menu_2">
+        <item>일정</item>
+        <item>ic_calendar</item>
+    </string-array>
+    <string-array name="noti_menu_3">
+        <item>오늘의 정보</item>
+        <item>ic_today_info</item>
+    </string-array>
+    <string-array name="noti_menu_4">
+        <item>오늘의 희망메세지</item>
+        <item>ic_message</item>
+    </string-array>
+
+</resources>

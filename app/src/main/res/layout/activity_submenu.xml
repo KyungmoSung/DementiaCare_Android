@@ -23,7 +23,7 @@
             android:background="@color/transparent">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_dementia"
+                android:id="@+id/card_menu_1"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
@@ -40,21 +40,22 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/iv_menu_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
                         android:padding="30dp"
-                        android:scaleType="centerInside"
-                        app:srcCompat="@drawable/ic_dementia" />
+                        android:scaleType="centerInside" />
 
                     <TextView
+                        android:id="@+id/tv_menu_1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:background="@drawable/cardview_bottom_bg"
                         android:gravity="center_horizontal"
-                        android:text="치매 정보"
+                        android:text="menu1"
                         android:textAlignment="center"
                         android:textColor="#666666"
                         android:textSize="18sp"
@@ -72,7 +73,7 @@
             android:background="@color/transparent">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_care"
+                android:id="@+id/card_menu_2"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
@@ -90,21 +91,22 @@
 
 
                     <ImageView
+                        android:id="@+id/iv_menu_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
                         android:padding="30dp"
-                        android:scaleType="centerInside"
-                        app:srcCompat="@drawable/ic_care" />
+                        android:scaleType="centerInside" />
 
                     <TextView
+                        android:id="@+id/tv_menu_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:background="@drawable/cardview_bottom_bg"
                         android:gravity="center_horizontal"
-                        android:text="돌봄 정보"
+                        android:text="menu2"
                         android:textAlignment="center"
                         android:textColor="#666666"
                         android:textSize="18sp"
@@ -129,7 +131,7 @@
             android:background="@color/transparent">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_env"
+                android:id="@+id/card_menu_3"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
@@ -146,23 +148,22 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/imageView5"
+                        android:id="@+id/iv_menu_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
                         android:padding="30dp"
-                        android:scaleType="centerInside"
-                        app:srcCompat="@drawable/ic_env" />
+                        android:scaleType="centerInside" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/tv_menu_3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:background="@drawable/cardview_bottom_bg"
                         android:gravity="center_horizontal"
-                        android:text="환경"
+                        android:text="menu3"
                         android:textAlignment="center"
                         android:textColor="#666666"
                         android:textSize="18sp"
@@ -180,7 +181,7 @@
             android:background="@color/transparent">
 
             <android.support.v7.widget.CardView
-                android:id="@+id/card_video"
+                android:id="@+id/card_menu_4"
                 android:layout_marginBottom="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
@@ -198,23 +199,22 @@
 
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/iv_menu_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
                         android:padding="30dp"
-                        android:scaleType="centerInside"
-                        app:srcCompat="@drawable/ic_video" />
+                        android:scaleType="centerInside" />
 
                     <TextView
-                        android:id="@+id/textView11"
+                        android:id="@+id/tv_menu_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:background="@drawable/cardview_bottom_bg"
                         android:gravity="center_horizontal"
-                        android:text="동영상"
+                        android:text="menu4"
                         android:textAlignment="center"
                         android:textColor="#666666"
                         android:textSize="18sp"

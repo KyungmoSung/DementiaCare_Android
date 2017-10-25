@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -42,17 +43,17 @@ public class TextDiaryActivity extends AppCompatActivity {
     TextDiaryDao textDiaryDao;
     public TourGuide mTutorialHandler;
 
-    @BindView(R.id.tool_bar_with_plus)
+    @BindView(R.id.tool_bar)
     Toolbar toolbar;
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
-    @BindView(R.id.add_btn)
-    ImageButton add_btn;
 
     @BindView(R.id.lv_text_diary)
     ListView listView;
     @BindView(R.id.layout_empty)
     LinearLayout layout_empty;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -87,7 +88,7 @@ public class TextDiaryActivity extends AppCompatActivity {
         });
     }
 
-    @OnClick(R.id.add_btn)
+    @OnClick(R.id.fab)
     public void add() {
         Intent intent = new Intent(getApplicationContext(), TextDiaryEditActivity.class);
         startActivity(intent);
@@ -98,7 +99,6 @@ public class TextDiaryActivity extends AppCompatActivity {
         super.onResume();
         diary = textDiaryDao.getResults();
         adapter.swapItems(diary);
-        Log.e("============", diary.size() + "");
 
         if (diary.size() > 0) {
             layout_empty.setVisibility(View.GONE);
@@ -111,14 +111,16 @@ public class TextDiaryActivity extends AppCompatActivity {
             ToolTip toolTip = new ToolTip()
                     .setTitle("일기 추가")
                     .setDescription("버튼을 눌러 새로운 일기를 추가해보세요!")
-                    .setGravity(Gravity.LEFT | Gravity.BOTTOM);
+                    .setTextColor(Color.parseColor("#ffffff"))
+                    .setBackgroundColor(Color.parseColor("#0896dc"))
+                    .setGravity(Gravity.LEFT|Gravity.TOP);
 
             mTutorialHandler = TourGuide.init(this).with(TourGuide.Technique.Click)
                     .motionType(TourGuide.MotionType.ClickOnly)
                     .setPointer(new Pointer())
                     .setToolTip(toolTip)
                     .setOverlay(new Overlay())
-                    .playOn(add_btn);
+                    .playOn(fab);
         }
     }
 

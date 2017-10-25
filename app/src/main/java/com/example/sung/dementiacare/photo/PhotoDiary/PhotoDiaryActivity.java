@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,9 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
@@ -49,17 +53,17 @@ public class PhotoDiaryActivity extends AppCompatActivity {
     PhotoDiaryDao photoDiaryDao;
     public TourGuide mTutorialHandler;
 
-    @BindView(R.id.tool_bar_with_plus)
+    @BindView(R.id.tool_bar)
     Toolbar toolbar;
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
-    @BindView(R.id.add_btn)
-    ImageButton add_btn;
 
     @BindView(R.id.photo_gridview)
     GridView gridView;
     @BindView(R.id.layout_empty)
     LinearLayout layout_empty;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -111,20 +115,21 @@ public class PhotoDiaryActivity extends AppCompatActivity {
             ToolTip toolTip = new ToolTip()
                     .setTitle("사진 추가")
                     .setDescription("버튼을 눌러 새로운 사진을 추가해보세요!")
-                    .setGravity(Gravity.LEFT|Gravity.BOTTOM);
+                    .setTextColor(Color.parseColor("#ffffff"))
+                    .setBackgroundColor(Color.parseColor("#0896dc"))
+                    .setGravity(Gravity.LEFT|Gravity.TOP);
 
             mTutorialHandler = TourGuide.init(this).with(TourGuide.Technique.Click)
                     .motionType(TourGuide.MotionType.ClickOnly)
                     .setPointer(new Pointer())
                     .setToolTip(toolTip)
                     .setOverlay(new Overlay())
-                    .playOn(add_btn);
+                    .playOn(fab);
         }
     }
 
-    @OnClick(R.id.add_btn)
+    @OnClick(R.id.fab)
     public void addPhoto() {
-        mTutorialHandler.cleanUp();
         if (Build.VERSION.SDK_INT >= 23) {
             if (checkPermission()) {
                 showPicker();

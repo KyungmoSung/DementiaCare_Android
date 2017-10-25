@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="list_info_title">
-        <item>치매 정보</item>
-        <item>돌봄 정보</item>
-        <item>환경</item>
-        <item>동영상</item>
+    <string-array name="list_info_menu">
+        <item>@array/info_menu_1</item>
+        <item>@array/info_menu_2</item>
+        <item>@array/info_menu_3</item>
+        <item>@array/info_menu_4</item>
     </string-array>
+
+    <string-array name="info_menu_1">
+        <item>치매 정보</item>
+        <item>ic_dementia</item>
+    </string-array>
+    <string-array name="info_menu_2">
+        <item>돌봄 정보</item>
+        <item>ic_care</item>
+    </string-array>
+    <string-array name="info_menu_3">
+        <item>환경</item>
+        <item>ic_env</item>
+    </string-array>
+    <string-array name="info_menu_4">
+        <item>동영상</item>
+        <item>ic_video</item>
+    </string-array>
+
 
     <string-array name="list_info_title_dementia">
         <item>치매 바로알기</item>
