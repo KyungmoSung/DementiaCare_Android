@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="list_photo_menu">
+        <item>@array/photo_menu_1</item>
+        <item>@array/photo_menu_2</item>
+    </string-array>
+
+    <string-array name="photo_menu_1">
+        <item>사진</item>
+        <item>ic_photo</item>
+    </string-array>
+    <string-array name="photo_menu_2">
+        <item>일기</item>
+        <item>ic_book</item>
+    </string-array>
+
+</resources>

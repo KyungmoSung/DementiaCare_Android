@@ -61,7 +61,20 @@ public class AlarmDao extends DBHelper {
 
         return arrayList;
     }
+    public ArrayList<AlarmDo> getResultsByMedicineId(int id) {
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        ArrayList<AlarmDo> arrayList = new ArrayList<>();
+        String[] args = { "MEDICINE__id", Integer.toString(id) };
+        Cursor cursor = db.rawQuery("SELECT * FROM DEMENTIACARE_ALARM_ATTACH A, DEMENTIACARE_ALARM B WHERE A.DEMENTIACARE_ALARM__id=? AND A.MEDICINE__id = B._id",args);
+        while (cursor.moveToNext()) {
 
 
+        }
+        db.close();
+
+        return arrayList;
+    }
 }
 

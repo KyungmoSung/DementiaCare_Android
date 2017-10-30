@@ -77,7 +77,7 @@ public class PdfViewerActivity extends AppCompatActivity {
         int end = Integer.parseInt(pages.substring(division + 1));
 
         pdfView.fromAsset(pdf)
-                .pages(pagesRange(begin, end))
+                .pages(pagesRange(begin-1, end-1))
                 .load();
     }
 

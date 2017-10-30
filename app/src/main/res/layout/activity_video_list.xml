@@ -15,9 +15,18 @@
 
         <fragment
             android:id="@+id/list_fragment"
-            class="com.example.sung.dementiacare.information.InformationVideoListActivity$VideoListFragment"
+            class="com.example.sung.dementiacare.information.Video.VideoListActivity$VideoListFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="출처 : 서울특별시광역치매센터, 중앙치매센터" />
 
     </LinearLayout>
 
@@ -36,11 +45,11 @@
             android:backgroundTint="@color/colorAccent"
             android:onClick="onClickClose"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
-            android:tint="#ffffff" />
+            android:tint="@android:color/black" />
 
         <fragment
             android:id="@+id/video_fragment_container"
-            class="com.example.sung.dementiacare.information.InformationVideoListActivity$VideoFragment"
+            class="com.example.sung.dementiacare.information.Video.VideoListActivity$VideoFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

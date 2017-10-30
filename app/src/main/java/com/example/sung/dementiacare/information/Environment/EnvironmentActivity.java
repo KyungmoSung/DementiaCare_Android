@@ -1,6 +1,8 @@
-package com.example.sung.dementiacare.information;
+package com.example.sung.dementiacare.information.Environment;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,6 +21,8 @@ import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -25,10 +30,10 @@ import butterknife.ButterKnife;
  * Created by Sung on 2017. 9. 3..
  */
 
-public class InformationEnvironmentActivity extends AppCompatActivity {
-    final int ARRAY_RESOURCE_ID = R.array.list_info_title_environment;
+public class EnvironmentActivity extends AppCompatActivity {
+    final int ENV_RESOURCE_ID = R.array.arrays_environment;
 
-    String[] menuList;
+    ArrayList<EnvironmentDo> env;
     String title;
 
     @BindView(R.id.list_info_title)
@@ -43,7 +48,7 @@ public class InformationEnvironmentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_submenu_information);
+        setContentView(R.layout.activity_list_menu);
         ButterKnife.bind(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -62,19 +67,35 @@ public class InformationEnvironmentActivity extends AppCompatActivity {
             toolbar_title.setText(title);
         }
 
-        menuList = getResources().getStringArray(ARRAY_RESOURCE_ID);
+        env = getArrayFromResource(ENV_RESOURCE_ID);
 
-        final ArrayAdapter adapter = new ArrayAdapter(this, R.layout.list_item_info, menuList);
+        final EnvironmentAdapter adapter = new EnvironmentAdapter(this,env);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getApplicationContext(), InformationEnvironmentWebViewActivity.class);
-                intent.putExtra("sub_index", position);
+                Intent intent = new Intent(getApplicationContext(), EnvironmentWebViewActivity.class);
+                intent.putExtra("env", env.get(position));
                 startActivity(intent);
             }
         });
-
     }
 
+    public ArrayList<EnvironmentDo> getArrayFromResource(int resourceId) {
+        Resources res = getResources();
+        TypedArray ta = res.obtainTypedArray(resourceId);
+
+        int n = ta.length();
+        ArrayList<EnvironmentDo> env = new ArrayList<>();
+        for (int i = 0; i < n; ++i) {
+            int id = ta.getResourceId(i, 0);
+            if (id > 0) {
+                env.add(i, new EnvironmentDo(res.getStringArray(id)[0],res.getStringArray(id)[1],res.getStringArray(id)[2]));
+            } else {
+                Log.e("getStringArray", "Not found");
+            }
+        }
+        ta.recycle();
+        return env;
+    }
 }

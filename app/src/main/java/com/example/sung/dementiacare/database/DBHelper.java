@@ -39,8 +39,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE TEXTDIARY (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, contents TEXT, date TEXT);");
 
         db.execSQL("CREATE TABLE DEMENTIACARE_ALARM (_id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, hour INTEGER, minutes INTEGER, repeat INTEGER);");
-
-
+        db.execSQL("CREATE TABLE DEMENTIACARE_ALARM_ATTACH(MEDICINE__id INT NOT NULL, DEMENTIACARE_ALARM__id INT NOT NULL,PRIMARY KEY (MEDICINE__id, DEMENTIACARE_ALARM__id));");
     }
 
     // DB 업그레이드를 위해 버전이 변경될 때 호출되는 함수

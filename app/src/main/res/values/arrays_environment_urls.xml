@@ -13,25 +13,30 @@
     <string-array name="env_livingroom">
         <item>거실</item>
         <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_livingroom</item>
+        <item>http://www.healingstandard.org/project/img/fac_prog_img_09.jpg</item>
     </string-array>
 
     <string-array name="env_bedroom">
         <item>침실</item>
         <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_bedroom1</item>
+        <item>http://www.healingstandard.org/project/img/fac_prog_img_02.jpg</item>
     </string-array>
 
     <string-array name="env_bathroom">
         <item>욕실 및 화장실</item>
         <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_bathroom</item>
+        <item>http://www.healingstandard.org/project/img/fac_prog_img_08.jpg</item>
     </string-array>
 
     <string-array name="env_kitchen">
         <item>주방</item>
         <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_kitchen</item>
+        <item>http://www.healingstandard.org/project/img/fac_prog_img_07.jpg</item>
     </string-array>
 
     <string-array name="env_garden">
-        <item>정원</item>
+        <item>정원 및 야외공간</item>
         <item>http://www.healingstandard.org/xe/index.php?mid=project_fac_env_garden</item>
+        <item>http://www.healingstandard.org/project/img/fac_prog_img_11.jpg</item>
     </string-array>
 </resources>

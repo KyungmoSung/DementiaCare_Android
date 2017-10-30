@@ -1,7 +1,8 @@
-package com.example.sung.dementiacare.photo.TextDiary;
+package com.example.sung.dementiacare.photo.PhotoDiary;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +12,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.sung.dementiacare.R;
+import com.example.sung.dementiacare.photo.TextDiary.TextDiaryDao;
+import com.example.sung.dementiacare.photo.TextDiary.TextDiaryDo;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -26,10 +31,11 @@ import butterknife.OnClick;
  * Created by Sung on 2017. 10. 12..
  */
 
-public class TextDiaryEditActivity extends AppCompatActivity {
+public class PhotoDiaryEditActivity extends AppCompatActivity {
 
-    TextDiaryDo textDiaryDo;
-    TextDiaryDao textDiaryDao;
+    String imageUri;
+    PhotoDiaryDo photoDiaryDo;
+    PhotoDiaryDao photoDiaryDao;
     String date = null;
     boolean editMode = false;
 
@@ -38,6 +44,9 @@ public class TextDiaryEditActivity extends AppCompatActivity {
 
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
+
+    @BindView(R.id.iv_image)
+    ImageView iv_image;
 
     @BindView(R.id.et_title)
     EditText et_title;
@@ -48,7 +57,7 @@ public class TextDiaryEditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_text_diary_edit);
+        setContentView(R.layout.activity_photo_diary_edit);
         ButterKnife.bind(this);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -60,18 +69,24 @@ public class TextDiaryEditActivity extends AppCompatActivity {
 
         toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorPhoto));
         toolbar_title.setTextColor(Color.WHITE);
-        toolbar_title.setText("일기 쓰기");
+        toolbar_title.setText("사진 추가");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        textDiaryDao = new TextDiaryDao(getApplicationContext(), null);
+        photoDiaryDao = new PhotoDiaryDao(getApplicationContext(), null);
 
         Intent intent = getIntent();
+        if(intent.hasExtra("imageUri")) {
+            imageUri = intent.getStringExtra("imageUri");
+            setImage(imageUri);
+        }
+
         if(intent.hasExtra("diary")) {
-            textDiaryDo = intent.getParcelableExtra("diary");
-            et_title.setText(textDiaryDo.getTitle());
-            et_contents.setText(textDiaryDo.getContents());
-            date = textDiaryDo.getDate();
+            photoDiaryDo = intent.getParcelableExtra("diary");
+            et_title.setText(photoDiaryDo.getTitle());
+            et_contents.setText(photoDiaryDo.getContents());
+            date = photoDiaryDo.getDate();
+            setImage(photoDiaryDo.getImageUri().toString());
             editMode = true;
         }
     }
@@ -87,14 +102,21 @@ public class TextDiaryEditActivity extends AppCompatActivity {
             } else {
                 newDate = date;
             }
-            textDiaryDo = new TextDiaryDo(et_title.getText().toString(), et_contents.getText().toString(), newDate);
-            textDiaryDao.insert(textDiaryDo);
+            photoDiaryDo = new PhotoDiaryDo(et_title.getText().toString(), et_contents.getText().toString(), newDate, imageUri);
+            photoDiaryDao.insert(photoDiaryDo);
             finish();
         } else {
-            textDiaryDo.setTitle(et_title.getText().toString());
-            textDiaryDo.setContents(et_contents.getText().toString());
-            textDiaryDao.update(textDiaryDo);
+            photoDiaryDo.setTitle(et_title.getText().toString());
+            photoDiaryDo.setContents(et_contents.getText().toString());
+            photoDiaryDao.update(photoDiaryDo);
             finish();
         }
+    }
+
+    public void setImage(String imageUri) {
+        this.imageUri = imageUri;
+        Glide.with(this)
+                .load(Uri.parse(imageUri))
+                .into(iv_image);
     }
 }
