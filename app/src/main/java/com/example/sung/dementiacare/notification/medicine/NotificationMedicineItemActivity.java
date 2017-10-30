@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -12,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.sung.dementiacare.R;
+import com.example.sung.dementiacare.notification.ListViewItem;
 import com.example.sung.dementiacare.notification.NotificationChoiceListViewAdapter;
 import com.example.sung.dementiacare.notification.alarm.AlarmActivity;
 import com.example.sung.dementiacare.notification.alarm.AlarmDao;
@@ -40,12 +42,14 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     Button bt1;
     Button bt2;
 
-
     ListView listView0;
     ListView listView1;
 
     String[] menuList = new String[1];
     ArrayAdapter adapter;
+
+    ArrayList<AlarmDo> arrayList;
+
     NotificationChoiceListViewAdapter adapter2;
 
     private int mode;
@@ -89,11 +93,17 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 MedicineDo medicineDo = new MedicineDo(name, "hello",0);
                 medicineDao.insert(medicineDo);
 
+                for(ListViewItem listViewItem : adapter2.getCheckedItems()) {
+                    medicineDao.attach(medicineDo.getIno(), listViewItem.getAlarmDo().getIno());
+
+                }
+
                 finish();
                 break;
             case MODE_MODIFY:
 
 
+                finish();
                 break;
             case MODE_VIEW:
 
@@ -149,6 +159,13 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 bt2 = (Button)findViewById(R.id.Button0_1);
                 et0 = (EditText)findViewById(R.id.editText0_0);
 
+                listView1 = (ListView)findViewById(R.id.list_view1);
+                arrayList = alarmDao.getResults();
+                adapter2 = new NotificationChoiceListViewAdapter(arrayList);
+
+                listView1.setAdapter(adapter2);
+
+
                 bt2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -172,9 +189,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 bt0 = (Button)findViewById(R.id.button0);
                 bt1 = (Button)findViewById(R.id.button1);
-                listView1 = (ListView)findViewById(R.id.list_view1);
 
-                ArrayList<AlarmDo> arrayList = alarmDao.getResults();
+                listView1 = (ListView)findViewById(R.id.list_view1);
+                arrayList = alarmDao.getResults();
 
 
                 adapter2 = new NotificationChoiceListViewAdapter(arrayList);
@@ -191,9 +208,16 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 break;
             case MODE_VIEW:
 
+                medicineDo = medicineDao.getResultByIno(index);
+
                 setContentView(R.layout.medicine_listview_item);
 
                 menuList[0] = "아침";
+
+                alarmDao.getResultsByMedicineId(medicineDo.getIno());
+
+
+
                 adapter = new ArrayAdapter(this, R.layout.list_item_info, menuList);
 
                 tv1 = (TextView)findViewById(R.id.textView0_0);
@@ -219,7 +243,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 ButterKnife.bind(this);
 
-                medicineDo = medicineDao.getResultByIno(index);
+
 
                 tv2.setText(medicineDo.getName());
 
