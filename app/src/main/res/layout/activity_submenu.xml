@@ -45,8 +45,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
-                        android:padding="30dp"
-                        android:scaleType="centerInside" />
+                        android:padding="40dp"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:id="@+id/tv_menu_1"
@@ -96,8 +96,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
-                        android:padding="30dp"
-                        android:scaleType="centerInside" />
+                        android:padding="40dp"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:id="@+id/tv_menu_2"
@@ -153,8 +153,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
-                        android:padding="30dp"
-                        android:scaleType="centerInside" />
+                        android:padding="40dp"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:id="@+id/tv_menu_3"
@@ -204,8 +204,8 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:background="@drawable/cardview_top_bg"
-                        android:padding="30dp"
-                        android:scaleType="centerInside" />
+                        android:padding="40dp"
+                        android:scaleType="fitCenter" />
 
                     <TextView
                         android:id="@+id/tv_menu_4"
