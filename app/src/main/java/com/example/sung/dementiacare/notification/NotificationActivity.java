@@ -2,8 +2,6 @@ package com.example.sung.dementiacare.notification;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,7 +9,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -19,12 +16,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sung.dementiacare.R;
-import com.example.sung.dementiacare.notification.CalendarActivity;
+import com.example.sung.dementiacare.notification.calendar.CalendarActivity;
 import com.example.sung.dementiacare.notification.medicine.NotificationMedicineActivity;
-import com.example.sung.dementiacare.notification.information.NotificationTodayInformationActivity;
-import com.example.sung.dementiacare.notification.hopemessage.NotificationTodayMessageActivity;
-
-import java.lang.reflect.Field;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

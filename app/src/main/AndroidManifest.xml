@@ -54,7 +54,7 @@
         <activity android:name=".notification.medicine.NotificationMedicineItemActivity" />
         <activity android:name=".notification.information.NotificationTodayInformationActivity" />
         <activity android:name=".notification.hopemessage.NotificationTodayMessageActivity" />
-        <activity android:name=".notification.CalendarActivity" />
+        <activity android:name=".notification.calendar.CalendarActivity" />
 
 
         <receiver android:name=".BootReceiver"    android:enabled="true"    android:exported="false" >
