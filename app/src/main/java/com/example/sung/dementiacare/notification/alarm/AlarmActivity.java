@@ -20,7 +20,6 @@ import butterknife.OnClick;
 
 public class AlarmActivity extends AppCompatActivity {
 
-
     @BindView(R.id.button0_0)
     Button button0_0;
     @BindView(R.id.button0_1)
@@ -33,7 +32,6 @@ public class AlarmActivity extends AppCompatActivity {
     EditText editText0_0;
     @BindView(R.id.timePicker0_0)
     TimePicker timePicker0_0;
-
     AlarmDao alarmDao;
 
     @Override
