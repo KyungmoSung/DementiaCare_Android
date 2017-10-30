@@ -70,7 +70,6 @@ public class AlarmDao extends DBHelper {
         Cursor cursor = db.rawQuery("SELECT * FROM DEMENTIACARE_ALARM_ATTACH A, DEMENTIACARE_ALARM B WHERE A.DEMENTIACARE_ALARM__id=? AND A.MEDICINE__id = B._id",args);
         while (cursor.moveToNext()) {
 
-
         }
         db.close();
 
