@@ -9,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -79,6 +80,7 @@ public class NotificationMedicineActivity extends AppCompatActivity {
                 intent = new Intent(getApplicationContext(), NotificationMedicineItemActivity.class);
                 intent.putExtra("mode", NotificationMedicineItemActivity.MODE_VIEW);
                 intent.putExtra("index", results.get(position).getIno());
+
                 startActivity(intent);
 
             }

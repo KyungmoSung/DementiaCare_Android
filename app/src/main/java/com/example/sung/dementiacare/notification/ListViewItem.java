@@ -39,6 +39,8 @@ public class ListViewItem {
 
     public boolean isChecked() {
 
+
+
         return this.checkBox.isChecked();
     }
 
