@@ -25,10 +25,23 @@
                 android:id="@+id/choose_date_view"
                 android:layout_width="wrap_content"
                 android:layout_height="28dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:layout_centerVertical="true"
-                android:orientation="horizontal" >
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/show_year_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="15dp"
+                    android:gravity="bottom"
+                    android:text="2014년"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/show_month_view"
                     android:layout_width="24dp"
@@ -36,25 +49,20 @@
                     android:gravity="bottom|center"
                     android:maxLines="1"
                     android:text="17"
-                    android:textColor="#ff25adff"
-                    android:textSize="19.3sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="14dp"
                     android:gravity="bottom"
                     android:maxLines="1"
                     android:text="월"
-                    android:textColor="#ff25adff"
-                    android:textSize="19.3sp" />
-                <TextView
-                    android:id="@+id/show_year_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:gravity="bottom"
-                    android:text="2014년"
-                    android:textColor="#ff25adff"
-                    android:textSize="13sp" />
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
         </LinearLayout>
@@ -63,27 +71,41 @@
             android:layout_width="match_parent"
             android:layout_height="28dp"
             android:background="#fff">
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="월" />
+                android:text="월"
+                android:textSize="18sp" />
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="화"/>
+                android:text="화"
+                android:textSize="18sp" />
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="수" />
+                android:text="수"
+                android:textSize="18sp" />
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="목" />
+                android:text="목"
+                android:textSize="18sp" />
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="금" />
+                android:text="금"
+                android:textSize="18sp" />
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="토" />
+                android:text="토"
+                android:textSize="18sp" />
+
             <TextView
                 style="@style/weekIndicatorStyle"
-                android:text="일" />
+                android:text="일"
+                android:textSize="18sp" />
         </LinearLayout>
 
         <android.support.design.widget.CoordinatorLayout
@@ -95,23 +117,34 @@
             <com.ldf.calendar.view.MonthPager
                 android:id="@+id/calendar_view"
                 android:layout_width="match_parent"
-                android:layout_height="270dp"
-                android:background="#fff">
-            </com.ldf.calendar.view.MonthPager>
+                android:layout_height="330dp"
+                android:background="#fff"/>
+
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#ffffff"
-                app:layout_behavior="com.ldf.calendar.behavior.RecyclerViewBehavior"
                 android:layout_gravity="bottom"
-                android:clipToPadding="false"
+                android:layout_marginBottom="45dp"
+                android:background="#efefef"
                 android:clipChildren="false"
-                android:layout_marginBottom="45dp"/>
-            <!-- paddingBottom或者magin距离必须是MonthPager高度的1/6-->
-            <!-- RecyclerView的高度必须是MatchParent-->
-            <!-- RecyclerView的background必须是非透明-->
+                android:clipToPadding="false"
+                app:layout_behavior="com.ldf.calendar.behavior.RecyclerViewBehavior" >
+
+            </android.support.v7.widget.RecyclerView>
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="@dimen/fab_margin"
+                android:tint="@android:color/white"
+                app:backgroundTint="@color/colorAlarm"
+                app:fabSize="auto"
+                app:srcCompat="@drawable/ic_plus" />
+
         </android.support.design.widget.CoordinatorLayout>
     </LinearLayout>
 </LinearLayout>
