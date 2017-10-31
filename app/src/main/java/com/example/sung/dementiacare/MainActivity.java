@@ -1,6 +1,9 @@
 package com.example.sung.dementiacare;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -8,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.transition.Fade;
 import android.transition.Slide;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -15,6 +19,8 @@ import com.example.sung.dementiacare.information.InformationActivity;
 import com.example.sung.dementiacare.notification.NotificationActivity;
 import com.example.sung.dementiacare.photo.DiaryMenuActivity;
 import com.example.sung.dementiacare.support.SupportActivity;
+
+import java.lang.reflect.Field;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -51,6 +57,35 @@ public class MainActivity extends AppCompatActivity {
             Slide slide = new Slide();
             slide.setDuration(1000);
             getWindow().setReturnTransition(slide);
+        }
+    }
+
+    public static String[][] getArrayFromResource(Context c, int resourceId) {
+        Resources res = c.getResources();
+        TypedArray ta = res.obtainTypedArray(resourceId);
+
+        int n = ta.length();
+        String[][] array = new String[n][];
+        for (int i = 0; i < n; ++i) {
+            int id = ta.getResourceId(i, 0);
+            if (id > 0) {
+                array[i] = res.getStringArray(id);
+                Log.e("array", array[i][0] + ", " + array[i][1]);
+            } else {
+                Log.e("getStringArray", "Not found");
+            }
+        }
+        ta.recycle();
+        return array;
+    }
+
+    public static int getResId(String resourceName, Class<?> c) {
+        try {
+            Field idField = c.getDeclaredField(resourceName);
+            return idField.getInt(idField);
+        } catch (Exception e) {
+            throw new RuntimeException("No resource ID found for: "
+                    + resourceName + " / " + c, e);
         }
     }
 //

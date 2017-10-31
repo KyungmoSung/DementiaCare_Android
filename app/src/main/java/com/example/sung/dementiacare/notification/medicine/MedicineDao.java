@@ -33,6 +33,15 @@ public class MedicineDao extends DBHelper {
         db.execSQL("INSERT INTO MEDICINE VALUES(null, '" + medicineDo.getName() + "', '" + medicineDo.getImage_path_name() + "', '" + medicineDo.getAlarm() + "');");
         db.close();
     }
+    public void attach(int id, int id2) {
+        // 읽고 쓰기가 가능하게 DB 열기
+        SQLiteDatabase db = getWritableDatabase();
+        // DB에 입력한 값으로 행 추가
+        db.execSQL("INSERT INTO DEMENTIACARE_ALARM_ATTACHE VALUES('"+ id +"','"+id2+"');");
+        db.close();
+
+    }
+
 
     public ArrayList<MedicineDo> getResults() {
         // 읽기가 가능하게 DB 열기

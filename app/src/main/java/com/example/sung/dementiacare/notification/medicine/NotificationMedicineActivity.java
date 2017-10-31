@@ -39,9 +39,7 @@ public class NotificationMedicineActivity extends AppCompatActivity {
 
     @BindView(R.id.list_info_title)
     ListView listView;
-    @BindView(R.id.fab1)
 
-    FloatingActionButton fab;
     ArrayAdapter adapter;
     Intent intent;
     MedicineDao medicineDao;
@@ -99,7 +97,7 @@ public class NotificationMedicineActivity extends AppCompatActivity {
     }
 
 
-    @OnClick(R.id.fab1)
+    @OnClick(R.id.fab)
     void onClickFab() {
 
         intent = new Intent(getApplicationContext(), NotificationMedicineItemActivity.class);

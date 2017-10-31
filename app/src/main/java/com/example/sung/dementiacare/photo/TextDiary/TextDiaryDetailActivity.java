@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 public class TextDiaryDetailActivity extends AppCompatActivity {
 
     TextDiaryDo textDiaryDo;
+    TextDiaryDao textDiaryDao;
 
     @BindView(R.id.tool_bar)
     Toolbar toolbar;
@@ -79,7 +80,10 @@ public class TextDiaryDetailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_modify:
-                Toast.makeText(this, "action_modify", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, TextDiaryEditActivity.class);
+                intent.putExtra("diary",textDiaryDo);
+                finish();
+                startActivity(intent);
                 break;
             case R.id.action_delete:
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -88,13 +92,15 @@ public class TextDiaryDetailActivity extends AppCompatActivity {
                 builder.setPositiveButton("네",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-//                                Toast.makeText(getApplicationContext(),"예를 선택했습니다.",Toast.LENGTH_LONG).show();
+                                textDiaryDao = new TextDiaryDao(getApplicationContext(), null);
+                                textDiaryDao.delete(textDiaryDo);
+                                Toast.makeText(getApplicationContext(),"일기를 삭제했습니다",Toast.LENGTH_LONG).show();
+                                finish();
                             }
                         });
                 builder.setNegativeButton("아니오",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-//                                Toast.makeText(getApplicationContext(),"아니오를 선택했습니다.",Toast.LENGTH_LONG).show();
                             }
                         });
                 builder.show();

@@ -5,13 +5,18 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +27,10 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import tourguide.tourguide.Overlay;
+import tourguide.tourguide.Pointer;
+import tourguide.tourguide.ToolTip;
+import tourguide.tourguide.TourGuide;
 
 /**
  * Created by Sung on 2017. 9. 3..
@@ -32,15 +41,19 @@ public class TextDiaryActivity extends AppCompatActivity {
     ArrayList<TextDiaryDo> diary;
     TextDiaryAdapter adapter;
     TextDiaryDao textDiaryDao;
+    public TourGuide mTutorialHandler;
 
-    @BindView(R.id.tool_bar_with_plus)
+    @BindView(R.id.tool_bar)
     Toolbar toolbar;
-
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
 
     @BindView(R.id.lv_text_diary)
     ListView listView;
+    @BindView(R.id.layout_empty)
+    LinearLayout layout_empty;
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -69,13 +82,13 @@ public class TextDiaryActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(), TextDiaryDetailActivity.class);
-                intent.putExtra("diary",diary.get(i));
+                intent.putExtra("diary", diary.get(i));
                 startActivity(intent);
             }
         });
     }
 
-    @OnClick(R.id.add_btn)
+    @OnClick(R.id.fab)
     public void add() {
         Intent intent = new Intent(getApplicationContext(), TextDiaryEditActivity.class);
         startActivity(intent);
@@ -85,7 +98,30 @@ public class TextDiaryActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         diary = textDiaryDao.getResults();
-        adapter.swapItems(textDiaryDao.getResults());
+        adapter.swapItems(diary);
+
+        if (diary.size() > 0) {
+            layout_empty.setVisibility(View.GONE);
+            if(mTutorialHandler != null){
+                mTutorialHandler.cleanUp();
+            }
+        } else {
+            layout_empty.setVisibility(View.VISIBLE);
+
+            ToolTip toolTip = new ToolTip()
+                    .setTitle("일기 추가")
+                    .setDescription("버튼을 눌러 새로운 일기를 추가해보세요!")
+                    .setTextColor(Color.parseColor("#ffffff"))
+                    .setBackgroundColor(Color.parseColor("#0896dc"))
+                    .setGravity(Gravity.LEFT|Gravity.TOP);
+
+            mTutorialHandler = TourGuide.init(this).with(TourGuide.Technique.Click)
+                    .motionType(TourGuide.MotionType.ClickOnly)
+                    .setPointer(new Pointer())
+                    .setToolTip(toolTip)
+                    .setOverlay(new Overlay())
+                    .playOn(fab);
+        }
     }
 
 }
