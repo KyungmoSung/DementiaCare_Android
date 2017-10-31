@@ -37,7 +37,7 @@ public class MedicineDao extends DBHelper {
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getWritableDatabase();
         // DB에 입력한 값으로 행 추가
-        db.execSQL("INSERT INTO DEMENTIACARE_ALARM_ATTACHE VALUES('"+ id +"','"+id2+"');");
+        db.execSQL("INSERT INTO DEMENTIACARE_ALARM_ATTACH VALUES('"+ id +"','"+id2+"');");
         db.close();
 
     }

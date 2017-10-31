@@ -66,11 +66,21 @@ public class AlarmDao extends DBHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         ArrayList<AlarmDo> arrayList = new ArrayList<>();
-        String[] args = { "MEDICINE__id", Integer.toString(id) };
-        Cursor cursor = db.rawQuery("SELECT * FROM DEMENTIACARE_ALARM_ATTACH A, DEMENTIACARE_ALARM B WHERE A.DEMENTIACARE_ALARM__id=? AND A.MEDICINE__id = B._id",args);
+        String[] args = { "A.DEMENTIACARE_ALARM__id", Integer.toString(id) };
+
+        Cursor cursor = db.rawQuery("SELECT * FROM DEMENTIACARE_ALARM_ATTACH A, DEMENTIACARE_ALARM B WHERE ?=? AND A.MEDICINE__id = B._id",args);
+
         while (cursor.moveToNext()) {
 
+            int ino = cursor.getInt(0);
+            String name = cursor.getString(1);
+            int hour = cursor.getInt(2);
+            int minutes = cursor.getInt(2);
+            int repeat = cursor.getInt(4);
 
+            AlarmDo alarmdo = new AlarmDo(ino, name, hour, minutes, repeat);
+
+            arrayList.add(alarmdo);
         }
         db.close();
 

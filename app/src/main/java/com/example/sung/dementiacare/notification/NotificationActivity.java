@@ -55,7 +55,6 @@ public class NotificationActivity extends AppCompatActivity {
     ImageView iv_menu_3;
     @BindView(R.id.iv_menu_4)
     ImageView iv_menu_4;
-
     @BindView(R.id.tv_menu_1)
     TextView tv_menu_1;
     @BindView(R.id.tv_menu_2)
