@@ -58,15 +58,22 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView"
+        <android.support.percent.PercentFrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="30dp"
-            android:adjustViewBounds="true"
-            android:cropToPadding="true"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_books" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView"
+                app:layout_aspectRatio="100%"
+                app:layout_heightPercent="50%"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_books" />
+
+        </android.support.percent.PercentFrameLayout>
 
     </LinearLayout>
 
@@ -112,16 +119,22 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <android.support.percent.PercentFrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:adjustViewBounds="true"
-            android:cropToPadding="false"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_support" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                app:layout_aspectRatio="100%"
+                app:layout_heightPercent="50%"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_support" />
+
+        </android.support.percent.PercentFrameLayout>
 
     </LinearLayout>
 
@@ -167,16 +180,24 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView3"
+
+        <android.support.percent.PercentFrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:adjustViewBounds="true"
-            android:cropToPadding="false"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_alarm" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                app:layout_aspectRatio="100%"
+                app:layout_heightPercent="50%"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_alarm" />
+
+        </android.support.percent.PercentFrameLayout>
+
 
     </LinearLayout>
 
@@ -222,16 +243,23 @@
                 android:textColor="@android:color/white" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/imageView4"
+        <android.support.percent.PercentFrameLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:adjustViewBounds="true"
-            android:cropToPadding="false"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/ic_photo" />
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                app:layout_aspectRatio="100%"
+                app:layout_heightPercent="50%"
+                android:layout_gravity="center"
+                android:layout_margin="30dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/ic_photo" />
+
+        </android.support.percent.PercentFrameLayout>
+
 
     </LinearLayout>
 

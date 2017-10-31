@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.sung.dementiacare"
         minSdkVersion 19
@@ -17,6 +17,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
 }
 
@@ -38,11 +42,9 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile files('libs/YouTubeAndroidPlayerApi.jar')
     compile 'com.android.support:percent:25.3.1'
+    compile 'com.github.MagicMashRoom:SuperCalendar:v1.4'
     compile ('com.github.worker8:tourguide:1.0.17-SNAPSHOT@aar') {
         transitive=true
     }
 
 }
-
-
-apply plugin: 'com.jakewharton.butterknife'
