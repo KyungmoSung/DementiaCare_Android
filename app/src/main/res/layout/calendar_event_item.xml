@@ -70,7 +70,8 @@
                 android:text="Title"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_title"
