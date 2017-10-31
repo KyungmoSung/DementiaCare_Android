@@ -13,5 +13,6 @@
 
     <color name="colorPhotoCardBg">#83caed</color>
     <color name="colorBg">#fbfbfb</color>
+    <color name="colorCalendar">#ffff9c0e</color>
     <color name="transparent">#00000000</color>
 </resources>

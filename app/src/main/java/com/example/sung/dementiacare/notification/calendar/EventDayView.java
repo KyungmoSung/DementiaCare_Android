@@ -44,14 +44,14 @@ public class EventDayView extends DayView {
     private void renderMarker(CalendarDate date, State state) {
         if (Utils.loadMarkData().containsKey(date.toString())) {
             if (state == State.SELECT || date.toString().equals(today.toString())) {
-                marker.setVisibility(GONE);
+                marker.setVisibility(VISIBLE);
             } else {
                 marker.setVisibility(VISIBLE);
-                if (Utils.loadMarkData().get(date.toString()).equals("0")) {
-                    marker.setEnabled(true);
-                } else {
-                    marker.setEnabled(false);
-                }
+//                if (Utils.loadMarkData().get(date.toString()).equals("0")) {
+//                    marker.setEnabled(true);
+//                } else {
+//                    marker.setEnabled(false);
+//                }
             }
         } else {
             marker.setVisibility(GONE);
@@ -74,7 +74,7 @@ public class EventDayView extends DayView {
     private void renderToday(CalendarDate date) {
         if (date != null) {
             if (date.equals(today)) {
-                dateTv.setText("오늘");
+                dateTv.setText(date.day+"");
                 todayBackground.setVisibility(VISIBLE);
             } else {
                 dateTv.setText(date.day + "");
