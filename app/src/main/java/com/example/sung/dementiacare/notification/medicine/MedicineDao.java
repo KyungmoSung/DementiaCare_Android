@@ -1,10 +1,12 @@
 package com.example.sung.dementiacare.notification.medicine;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import com.example.sung.dementiacare.database.DBHelper;
 
@@ -26,18 +28,36 @@ public class MedicineDao extends DBHelper {
     }
 
 
-    public void insert(MedicineDo medicineDo) {
+    public long insert(MedicineDo medicineDo) {
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getWritableDatabase();
         // DB에 입력한 값으로 행 추가
-        db.execSQL("INSERT INTO MEDICINE VALUES(null, '" + medicineDo.getName() + "', '" + medicineDo.getImage_path_name() + "', '" + medicineDo.getAlarm() + "');");
+
+        ContentValues contentvalues = new ContentValues();
+        contentvalues.put("name", medicineDo.getName());
+        contentvalues.put("image_path_name", medicineDo.getImage_path_name());
+        contentvalues.put("alarm", medicineDo.getAlarm());
+
+        long _id = db.insert("MEDICINE", null , contentvalues);
+
         db.close();
+
+        return _id;
     }
-    public void attach(int id, int id2) {
+    public void attach(long id, int id2) {
         // 읽고 쓰기가 가능하게 DB 열기
         SQLiteDatabase db = getWritableDatabase();
         // DB에 입력한 값으로 행 추가
-        db.execSQL("INSERT INTO DEMENTIACARE_ALARM_ATTACH VALUES('"+ id +"','"+id2+"');");
+
+        try {
+            db.execSQL("INSERT INTO DEMENTIACARE_ALARM_ATTACH VALUES('"+ id +"','"+id2+"');");
+
+        }
+        catch (Exception e) {
+
+            Log.e("PARK", "attach: "+e.getMessage() );
+        }
+
         db.close();
 
     }
@@ -57,7 +77,6 @@ public class MedicineDao extends DBHelper {
             String name = cursor.getString(1);
             String image_path_name = cursor.getString(2);
             int alarm = cursor.getInt(3);
-
             MedicineDo medicineDo = new MedicineDo(ino, name, image_path_name, alarm);
             arrayList.add(medicineDo);
         }
@@ -65,37 +84,31 @@ public class MedicineDao extends DBHelper {
         return arrayList;
     }
 
-    public MedicineDo getResultByIno(int ino) {
+    public MedicineDo getResultByIno(long ino) {
 
         SQLiteDatabase db = getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM MEDICINE WHERE _id = "+Integer.toString(ino), null);
-
-        cursor.moveToFirst();
-
-        String name = cursor.getString(1);
-        String image_path_name = cursor.getString(2);
-        int alarm = cursor.getInt(3);
-
-        MedicineDo medicineDo = new MedicineDo(ino, name, image_path_name, alarm);
 
 
-        return medicineDo;
-    }
+        Cursor cursor = db.rawQuery("SELECT * FROM MEDICINE WHERE _id = "+Long.toString(ino), null);
 
+        MedicineDo medicineDo = null;
+        String name;
+        String image_path_name ;
+        int alarm ;
 
-    public ArrayList<String> getNames() {
-        SQLiteDatabase db = getReadableDatabase();
-        ArrayList<String> names = new ArrayList<>();
-
-
-        Cursor cursor = db.rawQuery("SELECT name FROM MEDICINE", null);
         while (cursor.moveToNext()) {
 
-            String name = cursor.getString(0);
-            names.add(name);
+            name = cursor.getString(1);
+            image_path_name = cursor.getString(2);
+            alarm = cursor.getInt(3);
+            medicineDo = new MedicineDo(cursor.getInt(0), name, image_path_name, alarm);
+
+            Log.e("PARK", ino +"getResultByIno: "+medicineDo.getIno() );
+
         }
 
-        return names;
+        db.close();
+        return medicineDo;
 
     }
 }

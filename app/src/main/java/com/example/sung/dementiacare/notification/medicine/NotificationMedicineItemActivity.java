@@ -47,13 +47,12 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     ListView listView1;
 
     ArrayAdapter adapter;
-
     ArrayList<AlarmDo> arrayList;
 
     NotificationChoiceListViewAdapter adapter2;
 
     private int mode;
-    private int index;
+    private long index;
     public static final int MODE_CREATE = 0x00000004;
     public static final int MODE_MODIFY = 0x00000005;
     public static final int MODE_VIEW = 0x00000006;
@@ -67,17 +66,27 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
 
     @Override
+    protected void onPause() {
+        super.onPause();
+
+        if(adapter2 != null)
+            adapter2.notifyDataSetChanged();
+        if(adapter != null)
+            adapter.notifyDataSetChanged();
+
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        medicineDao = new MedicineDao(getApplicationContext(), null);
-
-        alarmDao = new AlarmDao(getApplicationContext(), null);
-
         intent = getIntent();
 
-        index = intent.getExtras().getInt("index");
+        index = intent.getExtras().getLong("index");
         mode = intent.getExtras().getInt("mode");
+
+        medicineDao = new MedicineDao(getApplicationContext(), null);
+        alarmDao = new AlarmDao(getApplicationContext(), null);
 
         setContentViewMode(mode);
 
@@ -93,8 +102,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 String name = et0.getText().toString();
                 MedicineDo medicineDo = new MedicineDo(name, "hello",0);
-                medicineDao.insert(medicineDo);
 
+                long _id = medicineDao.insert(medicineDo);
+                medicineDo.setIno(_id);
 
                 SparseBooleanArray checkArr = listView1.getCheckedItemPositions();
 
@@ -102,9 +112,8 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                     for (int i = listView1.getCount() -1; i > -1 ; i--) {
                         if (checkArr.get(i)) {
 
-
                             medicineDao.attach(medicineDo.getIno(), adapter2.getListViewItemList().get(i).getAlarmDo().getIno());
-
+                            Log.e("PARK", adapter2.getListViewItemList().get(i).getAlarmDo().getIno()+"onClickButton0: "+medicineDo.getIno() );
                         }
                     }
                 }
@@ -222,10 +231,8 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 setContentView(R.layout.medicine_listview_item);
 
+                ArrayList <AlarmDo> arrayList = alarmDao.getResultsByMedicineId(index);
 
-                ArrayList <AlarmDo> arrayList = alarmDao.getResultsByMedicineId(medicineDo.getIno());
-
-                Log.e("PARK", "setContentViewMode: " + arrayList.size() );
 
                 adapter = new ArrayAdapter(this, R.layout.list_item_info, arrayList);
 
@@ -252,7 +259,6 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 ButterKnife.bind(this);
 
-
                 tv2.setText(medicineDo.getName());
 
                 bt0.setText("확인");
@@ -265,7 +271,7 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 break;
         }
-        tv1.setText("약 이름");
+            tv1.setText("약 이름");
         tv3.setText("알림");
 
     }

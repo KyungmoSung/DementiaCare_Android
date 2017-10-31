@@ -7,7 +7,7 @@ package com.example.sung.dementiacare.notification.medicine;
 public class MedicineDo {
 
 
-    private int ino;
+    private long ino;
     private String name;
     private String image_path_name;
     private int alarm;
@@ -25,8 +25,12 @@ public class MedicineDo {
         this.alarm = alarm;
     }
 
-    public int getIno() {
+    public long getIno() {
         return ino;
+    }
+
+    public void setIno(long ino) {
+        this.ino = ino;
     }
 
     public void setIno(int ino) {

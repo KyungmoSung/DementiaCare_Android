@@ -7,6 +7,7 @@ import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -33,6 +34,21 @@ public class AlarmActivity extends AppCompatActivity {
     @BindView(R.id.timePicker0_0)
     TimePicker timePicker0_0;
     AlarmDao alarmDao;
+
+    @BindView(R.id.checkbox0)
+    CheckBox checkBox0;
+    @BindView(R.id.checkbox1)
+    CheckBox checkBox1;
+    @BindView(R.id.checkbox2)
+    CheckBox checkBox2;
+    @BindView(R.id.checkbox3)
+    CheckBox checkBox3;
+    @BindView(R.id.checkbox4)
+    CheckBox checkBox4;
+    @BindView(R.id.checkbox5)
+    CheckBox checkBox5;
+    @BindView(R.id.checkbox6)
+    CheckBox checkBox6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +82,25 @@ public class AlarmActivity extends AppCompatActivity {
 
         String name = editText0_0.getText().toString();
 
-        AlarmDo alarmDo = new AlarmDo(name, timePicker0_0.getCurrentHour(),timePicker0_0.getCurrentMinute(), 0);
+        int sum = 0 ;
+
+        if(checkBox0.isChecked())
+            sum += Math.pow(2, 0);
+        if(checkBox1.isChecked())
+            sum += Math.pow(2, 1);
+        if(checkBox2.isChecked())
+            sum += Math.pow(2, 2);
+        if(checkBox3.isChecked())
+            sum += Math.pow(2, 3);
+        if(checkBox4.isChecked())
+            sum += Math.pow(2, 4);
+        if(checkBox5.isChecked())
+            sum += Math.pow(2, 5);
+        if(checkBox6.isChecked())
+            sum += Math.pow(2, 6);
+
+
+        AlarmDo alarmDo = new AlarmDo(name, timePicker0_0.getCurrentHour(),timePicker0_0.getCurrentMinute(), sum);
         alarmDao.insert(alarmDo);
 
         finish();

@@ -67,4 +67,9 @@ public class AlarmDo {
     public void setRepeat(int repeat) {
         this.repeat = repeat;
     }
+
+    @Override
+    public String toString() {
+        return  name;
+    }
 }
