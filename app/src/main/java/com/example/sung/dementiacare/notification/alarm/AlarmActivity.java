@@ -3,9 +3,15 @@ package com.example.sung.dementiacare.notification.alarm;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.SystemClock;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,6 +26,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class AlarmActivity extends AppCompatActivity {
+
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
 
     @BindView(R.id.button0_0)
     Button button0_0;
@@ -54,8 +65,18 @@ public class AlarmActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_alarm_add_modify);
-
         ButterKnife.bind(this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorAlarm));
+        }
+
+        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAlarm));
+        toolbar_title.setTextColor(Color.WHITE);
+        toolbar_title.setText("알림 설정");
 
         alarmDao = new AlarmDao(getApplicationContext(), null);
 

@@ -63,7 +63,7 @@ public class NotificationMedicineActivity extends AppCompatActivity {
 
         toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAlarm));
         toolbar_title.setTextColor(Color.WHITE);
-        toolbar_title.setText("정보");
+        toolbar_title.setText("약물 알림");
 
         medicineDao = new MedicineDao(getApplicationContext(), null);
 

@@ -22,6 +22,7 @@ public class NotificationChoiceListViewAdapter extends BaseAdapter {
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>() ;
     private ArrayList<AlarmDo> alarmDo = new ArrayList<AlarmDo>();
+    public Boolean hideCheckBox = false;
 
     // ListViewAdapter의 생성자
     public NotificationChoiceListViewAdapter() {
@@ -59,19 +60,33 @@ public class NotificationChoiceListViewAdapter extends BaseAdapter {
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         TextView textTextView = (TextView) convertView.findViewById(R.id.textView1);
+        TextView timeTextView = (TextView) convertView.findViewById(R.id.tv_time);
+        TextView repeatTextView = (TextView) convertView.findViewById(R.id.tv_repeat);
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         ListViewItem listViewItem = listViewItemList.get(position);
 
 
         CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.checkBox1);
-
+        if(hideCheckBox)checkBox.setVisibility(View.GONE);
         listViewItem.setCheckBox(checkBox);
 //        listViewItem.setChecked(true);
-
         // 아이템 내 각 위젯에 데이터 반영
         textTextView.setText(listViewItem.getText());
+        timeTextView.setText(listViewItem.getAlarmDo().getHour()+":"+listViewItem.getAlarmDo().getMinutes());
 
+        boolean[] bits = new boolean[7];
+        String[] day = {"월","화","수","목","금","토","일"};
+        String selectDay = "";
+        for (int i = 6; i >= 0; i--) {
+            bits[i] = (listViewItem.getAlarmDo().getRepeat() & (1 << i)) != 0;
+        }
+
+        for(int i = 0; i < bits.length; i++){
+            if(bits[i]) selectDay += (day[i]+" ");
+        }
+
+        repeatTextView.setText(selectDay);
         return convertView;
     }
 
@@ -97,10 +112,11 @@ public class NotificationChoiceListViewAdapter extends BaseAdapter {
         ListViewItem item = new ListViewItem();
         item.setText(alarmDo.getName());
         item.setAlarmDo(alarmDo);
-
-
-
         listViewItemList.add(item);
+    }
+
+    public void hideCheckBox(){
+
     }
 }
 

@@ -52,7 +52,7 @@ public class AlarmDao extends DBHelper {
             int ino = cursor.getInt(0);
             String name = cursor.getString(1);
             int hour = cursor.getInt(2);
-            int minutes = cursor.getInt(2);
+            int minutes = cursor.getInt(3);
             int repeat = cursor.getInt(4);
 
             AlarmDo alarmdo = new AlarmDo(ino, name, hour, minutes, repeat);
@@ -74,7 +74,7 @@ public class AlarmDao extends DBHelper {
             int ino = cursor.getInt(0);
             String name = cursor.getString(1);
             int hour = cursor.getInt(2);
-            int minutes = cursor.getInt(2);
+            int minutes = cursor.getInt(3);
             int repeat = cursor.getInt(4);
 
             AlarmDo alarmdo = new AlarmDo(ino, name, hour, minutes, repeat);
