@@ -54,7 +54,7 @@ public class CalendarDao extends DBHelper {
             String title = cursor.getString(4);
             String contents = cursor.getString(5);
 
-            CalendarDo calendarDo = new CalendarDo(date, sTime, eTime, title,contents);
+            CalendarDo calendarDo = new CalendarDo(ino, date, sTime, eTime, title,contents);
             arrayList.add(calendarDo);
         }
         return arrayList;

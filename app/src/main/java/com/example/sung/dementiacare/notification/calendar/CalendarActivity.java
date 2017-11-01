@@ -170,7 +170,6 @@ public class CalendarActivity extends AppCompatActivity {
                         selectCalendarDo.add(data);
                     }
                 }
-                Log.e("====setSize===",selectCalendarDo.size()+"");
                 calendarAdapter.setData(selectCalendarDo);
             }
 
@@ -249,13 +248,17 @@ public class CalendarActivity extends AppCompatActivity {
         dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialogInterface) {
-                calendarDo = calendarDao.getResults();
-                calendarAdapter.swapItems(calendarDo);
-                initMarkData();
+                refreshEvent();
 
             }
         });
         dialog.show();
 
+    }
+
+    public void refreshEvent(){
+        calendarDo = calendarDao.getResults();
+        calendarAdapter.swapItems(calendarDo);
+        initMarkData();
     }
 }
