@@ -52,7 +52,7 @@ public class AlarmDao extends DBHelper {
             int ino = cursor.getInt(0);
             String name = cursor.getString(1);
             int hour = cursor.getInt(2);
-            int minutes = cursor.getInt(2);
+            int minutes = cursor.getInt(3);
             int repeat = cursor.getInt(4);
 
             AlarmDo alarmdo = new AlarmDo(ino, name, hour, minutes, repeat);
@@ -61,15 +61,25 @@ public class AlarmDao extends DBHelper {
 
         return arrayList;
     }
-    public ArrayList<AlarmDo> getResultsByMedicineId(int id) {
+    public ArrayList<AlarmDo> getResultsByMedicineId(long id) {
 
         SQLiteDatabase db = getReadableDatabase();
 
         ArrayList<AlarmDo> arrayList = new ArrayList<>();
-        String[] args = { "MEDICINE__id", Integer.toString(id) };
-        Cursor cursor = db.rawQuery("SELECT * FROM DEMENTIACARE_ALARM_ATTACH A, DEMENTIACARE_ALARM B WHERE A.DEMENTIACARE_ALARM__id=? AND A.MEDICINE__id = B._id",args);
+        String[] args = { "A.DEMENTIACARE_ALARM__id", Long.toString(id) };
+        Cursor cursor = db.rawQuery("SELECT B._id,B.title,B.hour,B.minutes,B.repeat FROM DEMENTIACARE_ALARM_ATTACH A, DEMENTIACARE_ALARM B WHERE A.DEMENTIACARE_ALARM__id = B._id AND A.MEDICINE__id = "+Long.toString(id),null);
+
         while (cursor.moveToNext()) {
 
+            int ino = cursor.getInt(0);
+            String name = cursor.getString(1);
+            int hour = cursor.getInt(2);
+            int minutes = cursor.getInt(3);
+            int repeat = cursor.getInt(4);
+
+            AlarmDo alarmdo = new AlarmDo(ino, name, hour, minutes, repeat);
+
+            arrayList.add(alarmdo);
         }
         db.close();
 

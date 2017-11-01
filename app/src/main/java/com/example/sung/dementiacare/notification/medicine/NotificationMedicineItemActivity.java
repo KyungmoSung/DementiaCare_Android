@@ -1,12 +1,18 @@
 package com.example.sung.dementiacare.notification.medicine;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,6 +29,7 @@ import com.example.sung.dementiacare.notification.alarm.AlarmDo;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -33,9 +40,15 @@ import butterknife.OnClick;
 public class NotificationMedicineItemActivity extends AppCompatActivity {
 
 
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
+
     TextView tv1;
     TextView tv2;
     TextView tv3;
+    TextView tvEmpty;
 
     EditText et0;
 
@@ -80,6 +93,12 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(getResources().getColor(R.color.colorAlarm));
+        }
         intent = getIntent();
 
         index = intent.getExtras().getLong("index");
@@ -89,6 +108,18 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
         alarmDao = new AlarmDao(getApplicationContext(), null);
 
         setContentViewMode(mode);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        arrayList = alarmDao.getResults();
+        if(adapter2 != null)
+            adapter2.notifyDataSetChanged();
+        if(adapter != null)
+            adapter.notifyDataSetChanged();
 
     }
 
@@ -183,6 +214,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 arrayList = alarmDao.getResults();
                 adapter2 = new NotificationChoiceListViewAdapter(arrayList);
 
+                tvEmpty = (TextView)findViewById(R.id.tv_empty);
+                if (arrayList.size() > 0 ) tvEmpty.setVisibility(View.GONE);
+
                 listView1.setAdapter(adapter2);
 
 
@@ -215,6 +249,9 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 adapter2 = new NotificationChoiceListViewAdapter(arrayList);
 
+                tvEmpty = (TextView)findViewById(R.id.tv_empty);
+                if (arrayList.size() > 0 ) tvEmpty.setVisibility(View.GONE);
+
                 listView1.setAdapter(adapter2);
 
 
@@ -233,8 +270,12 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
 
                 ArrayList <AlarmDo> arrayList = alarmDao.getResultsByMedicineId(index);
 
+                adapter2 = new NotificationChoiceListViewAdapter(arrayList);
+                adapter2.hideCheckBox = true;
+                tvEmpty = (TextView)findViewById(R.id.tv_empty);
+                if (arrayList.size() > 0 ) tvEmpty.setVisibility(View.GONE);
 
-                adapter = new ArrayAdapter(this, R.layout.list_item_info, arrayList);
+//                adapter = new ArrayAdapter(this, R.layout.list_item_info, arrayList);
 
                 tv1 = (TextView)findViewById(R.id.textView0_0);
                 tv2 = (TextView)findViewById(R.id.textView0_1);
@@ -244,24 +285,24 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
                 bt1 = (Button)findViewById(R.id.button1);
 
                 listView0 = (ListView)findViewById(R.id.list_view0);
-                listView0.setAdapter(adapter);
-                listView0.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                        Intent intent = new Intent(getApplicationContext(), NotificationMedicineItemActivity.class);
-                        intent.putExtra("sub_index", position);
-                        startActivity(intent);
-
-                    }
-                });
+                listView0.setAdapter(adapter2);
+//                listView0.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                        Intent intent = new Intent(getApplicationContext(), NotificationMedicineItemActivity.class);
+//                        intent.putExtra("sub_index", position);
+//                        startActivity(intent);
+//
+//                    }
+//                });
 
 
                 ButterKnife.bind(this);
 
                 tv2.setText(medicineDo.getName());
 
-                bt0.setText("확인");
+                bt0.setText("닫기");
                 bt1.setText("수정");
                 break;
 
@@ -274,5 +315,8 @@ public class NotificationMedicineItemActivity extends AppCompatActivity {
             tv1.setText("약 이름");
         tv3.setText("알림");
 
+        toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAlarm));
+        toolbar_title.setTextColor(Color.WHITE);
+        toolbar_title.setText("약물 알림");
     }
 }

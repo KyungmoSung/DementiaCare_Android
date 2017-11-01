@@ -101,10 +101,11 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
                             dialog.show();
                             break;
                         case R.id.action_delete:
-                            Log.e("delete","--------------");
                             CalendarDo data = calendar.get(position);
                             calendarDao.delete(data);
                             notifyDataSetChanged();
+                            CalendarActivity act = (CalendarActivity) context;
+                            act.refreshEvent();
                             break;
                     }
                     return false;
@@ -120,7 +121,6 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
         }
 
     }
-
     @Override
     public int getItemCount() {
         if (calendar == null || calendar.size() == 0) {
@@ -168,4 +168,5 @@ public class CalendarAdapter extends RecyclerView.Adapter<CalendarAdapter.ViewHo
         this.calendar = data;
         notifyDataSetChanged();
     }
+
 }
