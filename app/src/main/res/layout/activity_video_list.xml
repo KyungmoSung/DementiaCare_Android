@@ -20,14 +20,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="출처 : 서울특별시광역치매센터, 중앙치매센터" />
-
     </LinearLayout>
 
     <LinearLayout

@@ -11,6 +11,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -89,6 +90,7 @@ public class InformationActivity extends AppCompatActivity {
             textViews[i].setText(menuList[i][0]);
             Glide.with(this).load(getResId(menuList[i][1], R.drawable.class)).into(imageViews[i]);
         }
+
     }
 
     @OnClick(R.id.card_menu_1)

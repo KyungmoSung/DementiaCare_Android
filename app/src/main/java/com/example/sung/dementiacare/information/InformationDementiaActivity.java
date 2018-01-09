@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 public class InformationDementiaActivity extends AppCompatActivity {
     final int MENU_INDEX = 0;
     final int[] ARRAY_RESOURCE_ID = {R.array.list_info_title_dementia, R.array.sub_list_info_title_dementia_1, R.array.sub_list_info_title_dementia_2, R.array.sub_list_info_title_dementia_3, R.array.sub_list_info_title_dementia_4};
+    final String SOURCE = "출처 : 중앙치매센터";
 
     int mainIndex;
     String[] menuList;
@@ -36,12 +37,12 @@ public class InformationDementiaActivity extends AppCompatActivity {
 
     @BindView(R.id.list_info_title)
     ListView listView;
-
     @BindView(R.id.tool_bar)
     Toolbar toolbar;
-
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
+    @BindView(R.id.tv_source)
+    TextView tv_source;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,6 +64,10 @@ public class InformationDementiaActivity extends AppCompatActivity {
             toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.colorInformation));
             toolbar_title.setTextColor(Color.WHITE);
             toolbar_title.setText(title);
+            tv_source.setVisibility(View.VISIBLE);
+            tv_source.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            tv_source.setTextColor(Color.WHITE);
+            tv_source.setText(SOURCE);
         }
 
         if (intent.hasExtra("main_index")) {

@@ -10,6 +10,16 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar" />
 
+    <TextView
+        android:id="@+id/tv_source"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:paddingBottom="10dp"
+        android:text="TextView"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
     <ListView
         android:id="@+id/list_info_title"
         android:layout_width="match_parent"

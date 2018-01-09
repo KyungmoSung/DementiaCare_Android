@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.sung.dementiacare.R;
 
+import org.w3c.dom.Text;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -28,19 +30,21 @@ import butterknife.ButterKnife;
 public class InformationCareActivity extends AppCompatActivity {
     final int MENU_INDEX = 1;
     final int[] ARRAY_RESOURCE_ID = {R.array.list_info_title_care, R.array.sub_list_info_title_care_3};
+    final String SOURCE = "출처 : 중앙치매센터";
 
     int mainIndex;
     String[] menuList;
     String title;
 
+    @BindView(R.id.tool_bar)
+    Toolbar toolbar;
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
+    @BindView(R.id.tv_source)
+    TextView tv_source;
     @BindView(R.id.list_info_title)
     ListView listView;
 
-    @BindView(R.id.tool_bar)
-    Toolbar toolbar;
-
-    @BindView(R.id.toolbar_title)
-    TextView toolbar_title;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,6 +66,10 @@ public class InformationCareActivity extends AppCompatActivity {
             toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
             toolbar_title.setTextColor(Color.WHITE);
             toolbar_title.setText(title);
+            tv_source.setVisibility(View.VISIBLE);
+            tv_source.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            tv_source.setTextColor(Color.WHITE);
+            tv_source.setText(SOURCE);
         }
 
         if (intent.hasExtra("main_index")) {

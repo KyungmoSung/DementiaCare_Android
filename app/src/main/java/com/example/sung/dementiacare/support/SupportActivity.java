@@ -86,7 +86,8 @@ public class SupportActivity extends AppCompatActivity {
 
         for (int i = 0; i < menuList.length; i++) {
             textViews[i].setText(menuList[i][0]);
-            Glide.with(this).load(getResId(menuList[i][2], R.drawable.class)).into(imageViews[i]);
+//            Glide.with(this).load(getResId(menuList[i][2], R.drawable.class)).into(imageViews[i]);
+            Glide.with(this).load(R.drawable.ic_web).into(imageViews[i]);
         }
     }
 

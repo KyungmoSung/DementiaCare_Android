@@ -32,18 +32,19 @@ import butterknife.ButterKnife;
 
 public class EnvironmentActivity extends AppCompatActivity {
     final int ENV_RESOURCE_ID = R.array.arrays_environment;
+    final String SOURCE = "출처 : 힐링환경간호연구소";
 
     ArrayList<EnvironmentDo> env;
     String title;
 
     @BindView(R.id.list_info_title)
     ListView listView;
-
     @BindView(R.id.tool_bar)
     Toolbar toolbar;
-
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
+    @BindView(R.id.tv_source)
+    TextView tv_source;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -65,6 +66,10 @@ public class EnvironmentActivity extends AppCompatActivity {
             toolbar.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
             toolbar_title.setTextColor(Color.WHITE);
             toolbar_title.setText(title);
+            tv_source.setVisibility(View.VISIBLE);
+            tv_source.setBackgroundColor(ContextCompat.getColor(getApplicationContext(),R.color.colorInformation));
+            tv_source.setTextColor(Color.WHITE);
+            tv_source.setText(SOURCE);
         }
 
         env = getArrayFromResource(ENV_RESOURCE_ID);
