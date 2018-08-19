@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Dementia Care"
+            android:text="@string/app_name"
             android:textColor="@color/colorTitle"
             android:textSize="20sp"
             android:textStyle="bold" />
