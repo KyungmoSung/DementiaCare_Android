@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="arrays_video_1">
-        <item>@array/video_item_1_1</item>
+    <item>@array/video_item_1_1</item>
     </array>
 
     <array name="arrays_video_2">
@@ -44,6 +44,31 @@
         <item>@array/video_item_7_1</item>
     </array>
 
+    <array name="arrays_video">
+        <item>@array/video_item_1_1</item>
+        <item>@array/video_item_2_1</item>
+        <item>@array/video_item_3_1</item>
+        <item>@array/video_item_3_2</item>
+        <item>@array/video_item_3_3</item>
+        <item>@array/video_item_4_1</item>
+        <item>@array/video_item_4_2</item>
+        <item>@array/video_item_4_3</item>
+        <item>@array/video_item_4_4</item>
+        <item>@array/video_item_4_5</item>
+        <item>@array/video_item_5_1</item>
+        <item>@array/video_item_5_2</item>
+        <item>@array/video_item_5_3</item>
+        <item>@array/video_item_5_4</item>
+        <item>@array/video_item_5_5</item>
+        <item>@array/video_item_6_1</item>
+        <item>@array/video_item_6_2</item>
+        <item>@array/video_item_6_3</item>
+        <item>@array/video_item_6_4</item>
+        <item>@array/video_item_6_5</item>
+        <item>@array/video_item_6_6</item>
+        <item>@array/video_item_6_7</item>
+        <item>@array/video_item_7_1</item>
+    </array>
 
     <string-array name="video_item_1_1">
         <item>치매극복 인식개선 동영상</item>

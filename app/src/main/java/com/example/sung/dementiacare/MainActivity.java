@@ -1,7 +1,9 @@
 package com.example.sung.dementiacare;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Build;
@@ -15,12 +17,20 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.sung.dementiacare.common.EventDialog;
 import com.example.sung.dementiacare.information.InformationActivity;
+import com.example.sung.dementiacare.information.Video.VideoListActivity;
 import com.example.sung.dementiacare.notification.NotificationActivity;
+import com.example.sung.dementiacare.notification.TodayDialog;
 import com.example.sung.dementiacare.photo.DiaryMenuActivity;
 import com.example.sung.dementiacare.support.SupportActivity;
 
 import java.lang.reflect.Field;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -45,6 +55,60 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(getResources().getColor(R.color.statusBar));
+        }
+        getPreferences();
+    }
+
+    void todayMessage() {
+
+        int INFORMATION_MEDIA_RESOURCE_ID = R.array.arrays_video;
+        String[][] mediaArray = getArrayFromResource(getApplicationContext(),INFORMATION_MEDIA_RESOURCE_ID);
+
+        Random generator = new Random();
+        int randomIndex = generator.nextInt(mediaArray.length);
+
+        final String title = mediaArray[randomIndex][0];
+        final String url = mediaArray[randomIndex][1];
+
+        final EventDialog dialog = new EventDialog(this);
+
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dia) {
+                dialog.setMessage("오늘의 동영상", title, url);
+            }
+        });
+
+        dialog.show();
+    }
+
+    // 값 불러오기
+    private void getPreferences(){
+        SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
+        String eventCheckUpDate = pref.getString("eventCheckUpDate", null);
+        Log.e("eventCheckUpDate",eventCheckUpDate);
+
+        try{
+
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+            Calendar c = Calendar.getInstance();
+            String today = formatter.format(c.getTime());
+
+            Date date1 = formatter.parse(eventCheckUpDate);
+            Date date2 = formatter.parse(today);
+
+            Log.e("EventDialog checkUpDate",eventCheckUpDate);
+            Log.e("EventDialog today",today);
+
+            if (!date1.equals(date2)) {
+                todayMessage();
+                Log.e("EventDialog","eventCheckUpDate != today");
+            } else {
+                Log.e("EventDialog","eventCheckUpDate == today");
+            }
+
+        }catch (ParseException e1){
+            e1.printStackTrace();
         }
     }
 
