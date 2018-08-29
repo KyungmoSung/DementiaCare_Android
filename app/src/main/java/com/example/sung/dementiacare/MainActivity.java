@@ -86,29 +86,31 @@ public class MainActivity extends AppCompatActivity {
     private void getPreferences(){
         SharedPreferences pref = getSharedPreferences("pref", MODE_PRIVATE);
         String eventCheckUpDate = pref.getString("eventCheckUpDate", null);
-        Log.e("eventCheckUpDate",eventCheckUpDate);
 
-        try{
+        if (eventCheckUpDate != null){
+            try{
+                SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
+                Calendar c = Calendar.getInstance();
+                String today = formatter.format(c.getTime());
 
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd");
-            Calendar c = Calendar.getInstance();
-            String today = formatter.format(c.getTime());
+                Date date1 = formatter.parse(eventCheckUpDate);
+                Date date2 = formatter.parse(today);
 
-            Date date1 = formatter.parse(eventCheckUpDate);
-            Date date2 = formatter.parse(today);
+                Log.e("EventDialog checkUpDate",eventCheckUpDate);
+                Log.e("EventDialog today",today);
 
-            Log.e("EventDialog checkUpDate",eventCheckUpDate);
-            Log.e("EventDialog today",today);
+                if (!date1.equals(date2)) {
+                    todayMessage();
+                    Log.e("EventDialog","eventCheckUpDate != today");
+                } else {
+                    Log.e("EventDialog","eventCheckUpDate == today");
+                }
 
-            if (!date1.equals(date2)) {
-                todayMessage();
-                Log.e("EventDialog","eventCheckUpDate != today");
-            } else {
-                Log.e("EventDialog","eventCheckUpDate == today");
+            }catch (ParseException e1){
+                e1.printStackTrace();
             }
-
-        }catch (ParseException e1){
-            e1.printStackTrace();
+        } else {
+            todayMessage();
         }
     }
 
